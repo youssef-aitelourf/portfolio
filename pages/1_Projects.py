@@ -14,50 +14,39 @@ if not projects:
     st.warning("Aucun projet trouvé. Ajoutez vos projets dans projects.json.")
     st.stop()
 
-# Types principaux (pro / academic / personal)
-TYPE_TAGS = {"pro", "academic", "personal"}
-types_available = sorted({t for p in projects for t in p.get("tags", []) if t in TYPE_TAGS})
-tech_tags = sorted({t for p in projects for t in p.get("tags", []) if t not in TYPE_TAGS})
+# Séparer les projets par catégorie
+pro_projects = [p for p in projects if "pro" in p.get("tags", [])]
+personal_projects = [p for p in projects if "academic" in p.get("tags", []) or "personal" in p.get("tags", [])]
 
-col_type, col_tech = st.columns([1, 2])
-with col_type:
-    selected_type = st.selectbox(
-        "Type de projet",
-        options=["Tous"] + types_available,
-        index=0,
-    )
-with col_tech:
-    selected_tech = st.multiselect(
-        "Technologies / Domaines",
-        options=tech_tags,
-        placeholder="Tous",
-    )
+# Créer les onglets
+tab1, tab2 = st.tabs(["💼 Projets dans le cadre de stages", "🚀 Projets personnels"])
 
-col_flags = st.columns(2)
-with col_flags[0]:
-    require_github = st.checkbox("GitHub disponible")
-with col_flags[1]:
-    require_demo = st.checkbox("Démo disponible")
+with tab1:
+    if not pro_projects:
+        st.info("Aucun projet professionnel pour le moment.")
+    else:
+        st.markdown(f"**{len(pro_projects)} projet(s) professionnel(s)**")
+        st.markdown("---")
+        for project in pro_projects:
+            render_project_card(project)
 
-
-def match_project(p):
-    tags = set(p.get("tags", []))
-    if selected_type != "Tous" and selected_type not in tags:
-        return False
-    if selected_tech and not tags.intersection(selected_tech):
-        return False
-    if require_github and not p.get("github_url"):
-        return False
-    if require_demo and not p.get("demo_url"):
-        return False
-    return True
-
-
-filtered = [p for p in projects if match_project(p)]
-
-if not filtered:
-    st.info("Aucun projet ne correspond aux filtres.")
-    st.stop()
-
-for project in filtered:
-    render_project_card(project)
+with tab2:
+    if not personal_projects:
+        st.info("Aucun projet personnel pour le moment.")
+    else:
+        # Filtre pour les projets avec démo
+        show_only_demo = st.checkbox("Afficher uniquement les projets avec démo", key="demo_filter")
+        
+        # Filtrer les projets selon le checkbox
+        filtered_personal = personal_projects
+        if show_only_demo:
+            filtered_personal = [p for p in personal_projects if p.get("demo_url")]
+        
+        st.markdown(f"**{len(filtered_personal)} projet(s) personnel(s)**")
+        st.markdown("---")
+        
+        if not filtered_personal:
+            st.info("Aucun projet avec démo disponible.")
+        else:
+            for project in filtered_personal:
+                render_project_card(project)
