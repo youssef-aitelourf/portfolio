@@ -1,0 +1,312 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% Enhanced Portfolio Template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% ModernCV themes
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+% Character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome5}
+
+% Adjust the page margins
+\usepackage[scale=0.75]{geometry}
+\usepackage{multicol}
+
+% Package for colored boxes
+\usepackage[most]{tcolorbox}
+
+% Personal data
+\name{Youssef}{AIT ELOURF}
+\phone[mobile]{+1 (581) 672-2103}
+\email{youssef.aitelourf.pro@gmail.com}
+\social[linkedin]{linkedin.com/in/youssef-ait-elourf}
+
+% Define a custom tcolorbox for project titles
+\newtcolorbox{projecttitle}{
+  colback=blue!5!white,
+  colframe=blue!60!black,
+  fonttitle=\bfseries,
+  boxrule=0.5pt,
+  arc=1mm,
+  sharp corners,
+  center title
+}
+
+\begin{document}
+
+% Increase the penalty for overfull hboxes to try to avoid them
+\setlength{\overfullrule}{5pt}
+\hfuzz=1pt
+
+\makecvtitle
+
+\section{Annexe au CV : Portfolio de Projets}
+Ce document détaille les projets techniques que j'ai menés, en distinguant mon expérience professionnelle acquise en stage de mes réalisations académiques et personnelles.
+
+%================================================
+% SECTION: Professional Projects (Internship)
+%================================================
+
+\subsection{Projets Professionnels (Stage chez Eddmon \& Le Kompa)}
+
+\textit{Projets développés et mis en production lors de mon stage d'Ingénieur Machine Learning \& IA (Avril - Août 2025) puis temps partiel.}
+
+% --- Project 1 ---
+\begin{projecttitle}
+Système de Transcription et d'Analyse d'Appels
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{Les conseillers perdaient un temps considérable à retranscrire manuellement les appels clients dans le CRM. Le processus était source d'erreurs, d'oublis et manquait d'homogénéité.}
+\cvitem{\textbf{Objectif}}{Automatiser la transcription des appels et générer des résumés structurés pour les intégrer directement au CRM, afin de libérer du temps pour les équipes et fiabiliser le suivi client.}
+\cvitem{\textbf{Solution Développée}}{Mise en place d'un pipeline automatisé :
+\begin{itemize}
+  \item \textbf{Capture et Transcription :} Utilisation de l'API \textbf{AssemblyAI} pour la transcription des appels, choisie pour la haute qualité de sa diarisation (séparation des interlocuteurs).
+  \item \textbf{Analyse IA :} Un modèle de langage enrichit la transcription avec les données du CRM (historique client, etc.), puis génère un résumé clair, les points clés de la demande et des propositions d'actions (création de ticket, relance, etc.).
+  \item \textbf{Intégration :} Les résultats sont injectés directement dans le CRM via \textbf{Laravel Cloud}, rendant l'information accessible à toute l'équipe en temps réel.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{\textbf{AssemblyAI}, Python, Modèles de Langage (Mistral, GPT), \textbf{Laravel Cloud}, n8n.}
+\cvitem{\textbf{Impact}}{\textbf{Gain de 100\% du temps de saisie manuelle} pour les conseillers, amélioration de l'homogénéité et de la fiabilité des données dans le CRM, et réactivité accrue des équipes.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+% --- Project 2 ---
+\begin{projecttitle}
+Création Automatique de Fiches et Demandes Clients
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{La saisie manuelle des demandes clients dans le CRM était chronophage et sujette à des erreurs de retranscription. De plus, des propos bruts ou inadaptés pouvaient être transmis aux tuteurs, nuisant à la qualité de la communication.}
+\cvitem{\textbf{Objectif}}{Automatiser la création de fiches clients structurées, claires et professionnelles à partir des transcriptions d'appels, en filtrant les informations non pertinentes.}
+\cvitem{\textbf{Solution Développée}}{Développement d'un pipeline de traitement avancé :
+\begin{itemize}
+  \item \textbf{Enrichissement Contextuel :} Le système récupère la transcription de l'appel et l'enrichit avec le contexte du CRM (profil du client, historique).
+  \item \textbf{Reformulation par IA :} Un modèle de langage (\textbf{GPT} ou \textbf{Mistral} fine-tuné) reformule la demande pour en extraire l'essentiel.
+  \item \textbf{Filtrage et Génération :} L'IA filtre automatiquement les propos inadaptés et génère une fiche client structurée, qui est ensuite intégrée dans le CRM via \textbf{Laravel Cloud}.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{Python, Modèles de Langage (GPT, Mistral), \textbf{RAG}, \textbf{GCP}, \textbf{Laravel Cloud}.}
+\cvitem{\textbf{Impact}}{Le temps de création d'une fiche client est passé de \textbf{3-5 minutes à quelques secondes}. La qualité des données a été améliorée, réduisant les erreurs et professionnalisant les échanges avec les tuteurs.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+% --- Project 3 ---
+\begin{projecttitle}
+Génération Automatique de Réponses aux SMS
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{La gestion du volume élevé de SMS provenant des clients, prospects et tuteurs était une tâche répétitive qui entraînait des délais de réponse variables et une charge de travail importante pour les conseillers.}
+\cvitem{\textbf{Objectif}}{Accélérer le traitement des SMS en fournissant aux conseillers des brouillons de réponses personnalisées et contextuelles, qu'ils n'ont plus qu'à valider.}
+\cvitem{\textbf{Solution Développée}}{Création d'un agent conversationnel :
+\begin{itemize}
+  \item \textbf{Extraction de Contexte :} L'agent récupère le SMS entrant et le contexte associé depuis le CRM (historique des demandes, échanges précédents).
+  \item \textbf{Génération de Réponse :} Un modèle de langage (\textbf{GPT} fine-tuné ou \textbf{Mistral}) analyse le payload (SMS + contexte) et génère une réponse adaptée, en respectant le ton des conseillers.
+  \item \textbf{Validation Humaine :} La réponse est transmise comme brouillon au conseiller, qui peut la valider en un clic ou la modifier.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{Modèles de Langage (GPT, Mistral via \textbf{Ollama}), \textbf{GCP}, Python, API internes.}
+\cvitem{\textbf{Impact}}{Le délai de réponse aux SMS a été \textbf{divisé par 5}, améliorant significativement la réactivité et la satisfaction client, tout en réduisant le stress opérationnel des équipes.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+% --- Project 4 ---
+\begin{projecttitle}
+Récapitulatif d'Appel et Génération de Mails Personnalisés
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{La rédaction manuelle de mails de suivi après chaque appel (comprenant récapitulatif, devis, facture, etc.) était une tâche longue et fastidieuse, pouvant prendre jusqu'à 10 minutes par conseiller.}
+\cvitem{\textbf{Objectif}}{Automatiser la génération de mails de suivi personnalisés, professionnels et cohérents avec la charte de l'entreprise.}
+\cvitem{\textbf{Solution Développée}}{Un pipeline complet de génération de contenu :
+\begin{itemize}
+  \item \textbf{Génération de Résumé :} Le système utilise la transcription de l'appel enrichie des données CRM pour générer un résumé structuré.
+  \item \textbf{Adaptation du Style :} Grâce à un \textbf{fine-tuning sur GCP} et à une ingénierie de prompts avancée, l'IA adapte le ton et le style rédactionnel à celui du conseiller concerné.
+  \item \textbf{Intégration en Brouillon :} Le mail final est automatiquement intégré en tant que brouillon dans la boîte mail professionnelle du conseiller via l'API \textbf{Gmail}, permettant une validation humaine avant envoi.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{\textbf{AssemblyAI}, Python, Modèles de Langage (fine-tuning sur \textbf{GCP}), \textbf{Gmail API}.}
+\cvitem{\textbf{Impact}}{\textbf{Réduction drastique du temps} de rédaction, passant de 10 minutes à quelques secondes. Amélioration de l'homogénéité et de la qualité des communications, renforçant l'image de marque de l'entreprise.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+% --- Project 5 ---
+\begin{projecttitle}
+Algorithme de Matching pour Demandes "Niches"
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{Les demandes très spécifiques (ex: tuteur de mathématiques parlant italien) nécessitaient une recherche manuelle de plusieurs heures dans une base de plus de 4000 tuteurs, avec un faible taux de succès.}
+\cvitem{\textbf{Objectif}}{Développer un algorithme capable d'identifier et de classer rapidement les profils de tuteurs les plus pertinents pour les demandes complexes.}
+\cvitem{\textbf{Solution Développée}}{
+\begin{itemize}
+  \item \textbf{Entraînement du Modèle :} Un modèle de \textbf{Machine Learning supervisé} a été entraîné sur l'historique des attributions réussies, en utilisant des critères multiples (compétences, disponibilités, localisation, feedbacks clients, etc.).
+  \item \textbf{Développement du Scoring :} Le modèle génère un score de pertinence pour chaque tuteur actif, produisant une liste restreinte des 10 meilleurs profils pour chaque demande.
+  \item \textbf{Déploiement et Interface :} L'algorithme a été déployé via une API sur \textbf{DigitalOcean} et intégré à une interface simple permettant aux conseillers de visualiser les suggestions et de valider le choix final.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{\textbf{Scikit-learn}, Python, \textbf{SQL}, \textbf{DigitalOcean}.}
+\cvitem{\textbf{Impact}}{Le temps de recherche est passé de \textbf{plus d'une heure à quelques secondes}. Le taux de satisfaction des demandes "niches" a été significativement amélioré, transformant une contrainte en avantage compétitif.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+% --- Project 6 ---
+\begin{projecttitle}
+Agent IA "Julie" - Assistante RH et Référente Tuteurs
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{Le pôle RH faisait face à une charge administrative considérable pour le recrutement (gestion des dossiers, organisation des entretiens) et le suivi des tuteurs (réponse aux questions récurrentes).}
+\cvitem{\textbf{Objectif}}{Créer un agent IA polyvalent pour automatiser les tâches RH répétitives et servir de premier point de contact pour les tuteurs.}
+\cvitem{\textbf{Solution Développée}}{
+\begin{itemize}
+  \item \textbf{Base de Connaissances et RAG :} Une base documentaire interne (procédures RH, guides) a été créée. L'agent utilise le \textbf{RAG (Retrieval-Augmented Generation)} pour y puiser des informations et fournir des réponses précises.
+  \item \textbf{Connexion aux Outils Métiers :} "Julie" a été connectée à \textbf{Gmail} pour gérer les mails, à \textbf{Calendly} pour organiser les entretiens, et au \textbf{CRM} pour mettre à jour les dossiers.
+  \item \textbf{Double Rôle :} L'agent a été programmé pour endosser deux rôles : "Assistante RH" pour les candidats et "Référente Tuteurs" pour les intervenants actifs.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{\textbf{LangChain}, \textbf{RAG}, \textbf{Vector Databases}, Python, \textbf{Gmail API}, \textbf{Calendly API}.}
+\cvitem{\textbf{Impact}}{Réduction majeure de la charge administrative du pôle RH, amélioration de l'expérience candidat grâce à des réponses rapides et personnalisées, et communication fluidifiée avec les tuteurs.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+% --- Project 7 ---
+\begin{projecttitle}
+Agent de Prospection B2B pour les Écoles
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{La prospection manuelle d'établissements scolaires pour la filiale Le Kompa était extrêmement chronophage, limitant le volume de contacts et ralentissant la croissance.}
+\cvitem{\textbf{Objectif}}{Automatiser la prospection en générant des emails personnalisés et pertinents à grande échelle.}
+\cvitem{\textbf{Solution Développée}}{
+\begin{itemize}
+  \item \textbf{Exploration Web (Scraping) :} Un module de scraping analyse les sites web des établissements ciblés pour identifier les activités périscolaires déjà offertes.
+  \item \textbf{Génération de Prompt Enrichi :} Les informations collectées sont structurées et combinées avec le catalogue de services du Kompa pour créer un prompt très détaillé.
+  \item \textbf{Rédaction par IA et Intégration :} Un modèle de langage rédige un email de prospection sur mesure, mettant en avant les services complémentaires. Le mail est ensuite envoyé en brouillon dans la boîte des commerciaux via l'API \textbf{Gmail}.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{Python (\textbf{BeautifulSoup}, \textbf{Scrapy}), Modèles de Langage, \textbf{Gmail API}.}
+\cvitem{\textbf{Impact}}{A permis de démarcher un volume beaucoup plus important d'écoles avec un haut niveau de personnalisation. \textbf{Plus de 10 écoles ont été signées} grâce au premier contact initié par cet agent, contribuant directement à la rentabilité du Kompa dès sa première année.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+%================================================
+% SECTION: Academic and Personal Projects
+%================================================
+
+\subsection{Projets Académiques et Personnels}
+
+\textit{Sélection de projets réalisés avant et pendant la maîtrise, démontrant une expertise en data science, machine learning, deep learning et GenAI, en lien direct avec l'analyse de données, la modélisation prédictive et la réduction des risques.}
+
+% --- Nouveau projet 1 : séries temporelles financières ---
+\begin{projecttitle}
+Prévision de Séries Temporelles Financières (LSTM/Transformer)
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{Besoin de modéliser l'évolution de rendements d'indices et d'actions pour explorer des scénarios de risque de marché et de stress.}
+\cvitem{\textbf{Objectif}}{Construire un modèle de prévision de séries temporelles capable de mieux capter les dynamiques non linéaires qu'un modèle classique (ARIMA, régression).}
+\cvitem{\textbf{Solution Développée}}{
+\begin{itemize}
+  \item Constitution d'un dataset de plusieurs années de données financières (indices, actions), feature engineering (retours log, volatilité, moyennes mobiles).
+  \item Entraînement et comparaison de modèles LSTM et Transformer (\textbf{PyTorch}) vs baseline ARIMA.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{Python, \textbf{PyTorch}, \textbf{Pandas}, \textbf{scikit-learn}, Matplotlib, Plotly.}
+\cvitem{\textbf{Résultats}}{Réduction de la MAE/RMSE d'environ \textbf{40\%} par rapport à la baseline, meilleure capture des chocs de volatilité et amélioration de la qualité des scénarios de stress test.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.2em}
+
+% --- Nouveau projet 2 : NLP documents risques/compliance ---
+\begin{projecttitle}
+Classification de Documents Financiers (Risque \& Conformité) avec BERT
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{Les institutions financières manipulent un grand volume de documents (rapports, mails, notes internes) qu'il est coûteux de catégoriser manuellement (risque opérationnel, conformité, client, etc.).}
+\cvitem{\textbf{Objectif}}{Automatiser la classification de documents texte en plusieurs catégories liées au risque et à la conformité pour accélérer l'analyse et prioriser les cas critiques.}
+\cvitem{\textbf{Solution Développée}}{
+\begin{itemize}
+  \item Constitution d'un corpus de textes annotés, prétraitement (tokenisation, nettoyage).
+  \item Fine-tuning d'un modèle \textbf{BERT} (Hugging Face Transformers) pour classification multi-étiquettes.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{Python, \textbf{Transformers} (BERT), \textbf{Hugging Face}, scikit-learn, Matplotlib/Seaborn.}
+\cvitem{\textbf{Résultats}}{\textbf{F1-score macro $\approx$ 0,87} sur $\sim$10k documents ; réduction significative du temps de tri manuel et meilleure détection des contenus sensibles (risque/compliance).}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.2em}
+
+% --- Nouveau projet 3 : ETL / Big Data analytique ---
+\begin{projecttitle}
+Pipeline ETL et Analyse Exploratoire Big Data (Spark \& Pandas)
+\end{projecttitle}
+
+\cvitem{\textbf{Contexte}}{Traitement de grands volumes de données transactionnelles hétérogènes pour préparer des cas d'usage d'analytique (détection d'anomalies, scoring, tableaux de bord).}
+\cvitem{\textbf{Objectif}}{Mettre en place un pipeline ETL robuste et scalable, du brut jusqu'au dataset prêt pour la modélisation et la visualisation.}
+\cvitem{\textbf{Solution Développée}}{
+\begin{itemize}
+  \item Ingestion de fichiers volumineux ($>$ 500 Mo) avec \textbf{Apache Spark}, normalisation des schémas, jointures, agrégations.
+  \item Nettoyage et feature engineering avec \textbf{Pandas}, EDA et visualisation interactive (Plotly) pour mettre en évidence tendances et anomalies.
+\end{itemize}
+}
+\cvitem{\textbf{Technologies}}{\textbf{Apache Spark}, \textbf{Pandas}, SQL, Plotly, Seaborn.}
+\cvitem{\textbf{Résultats}}{Temps de traitement divisés par un facteur \textbf{3} par rapport à un flux purement local ; datasets prêts pour des modèles de détection d'anomalies et de scoring de risque opérationnel.}
+
+\vspace{0.8em}\rule{\linewidth}{0.4pt}\vspace{1.5em}
+
+% --- Bloc existant en colonnes : autres projets génériques ---
+\begin{multicols}{2}
+\setlength{\parskip}{1.5em} % Add space between project entries
+
+\faCog~\textbf{Prédiction Boursière par Reinforcement Learning}\\
+Développement d'un algorithme de Reinforcement Learning pour analyser et prédire les cours des actions.\\
+\textit{Outils: Python, Keras, TensorFlow, Scikit-learn.}
+
+\faCog~\textbf{Analyse de Données Cinématographiques}\\
+Exploitation d'un dataset de films (1990-2010) pour extraire des insights sur les tendances de l'industrie.\\
+\textit{Outils: Python, bibliothèques de data science.}
+
+\faCog~\textbf{Gestion de Big Data et Data Warehouse}\\
+Mise en place de pipelines de traitement de données hétérogènes avec Neo4j pour le non structuré et MySQL pour un Data Warehouse (analyse OLAP).\\
+\textit{Outils: PySpark, Neo4j, MySQL.}
+
+\faCog~\textbf{Analyse du Marché Immobilier Français}\\
+Analyse de données foncières pour classifier les tendances du marché par type de bien, localisation et prix.\\
+\textit{Outils: PySpark, Matplotlib, Scikit-learn.}
+
+\faCog~\textbf{Jeu Vidéo RPG avec Données de Santé}\\
+Conception d'un RPG où les données de santé (sport, sommeil) constituent le cœur du gameplay pour gamifier l'activité physique.\\
+\textit{Outils: Python, SwiftUI (iOS), Unity (C\#).}
+
+\faCog~\textbf{Application d'Analyse Boursière NASDAQ}\\
+Développement d'une application d'analyse et de prédiction des cours du NASDAQ, intégrant des indicateurs financiers (RSI, MACD).\\
+\textit{Outils: PySpark, Scikit-learn, Matplotlib.}
+
+\faCog~\textbf{Jeu d'Échecs avec IA}\\
+Création d'un jeu d'échecs avec une interface en Java et une logique d'IA en Python.\\
+\textit{Outils: Java, Python.}
+
+\faCog~\textbf{Tic Tac Toe (Morpion) avec IA}\\
+Développement d'un jeu de morpion avec une interface en Java et un backend d'IA en Python.\\
+\textit{Outils: Java, Python.}
+
+\faCog~\textbf{Application de Fitness et Nutrition}\\
+Conception d'une application mobile iOS intégrant programmes de fitness et conseils nutritionnels.\\
+\textit{Outils: SwiftUI.}
+
+\faCog~\textbf{Jeu de Bataille Navale}\\
+Réalisation d'un jeu de bataille navale en C pur, sans librairies externes (sauf stdio.h et stdlib.h).\\
+\textit{Outils: C.}
+
+\faCog~\textbf{Application de Visionnage de Films avec IA}\\
+Application de lecture de films locaux avec une IA extrayant titre, année et résumé.\\
+\textit{Outils: Java, Python.}
+
+\faCog~\textbf{Dispositif de Reconnaissance Vocale}\\
+Développement d'un module sur Arduino pour la reconnaissance vocale, associant matériel et réseaux neuronaux.\\
+\textit{Outils: Arduino (C), Python.}
+
+\faCog~\textbf{Modification de LLM pour Usage Quotidien}\\
+Adaptation de modèles de langage open-source pour automatiser des tâches sur ordinateur, dans une approche d'assistant personnel type "JARVIS".\\
+\textit{Outils: Python, C.}
+
+\end{multicols}
+
+\end{document}
