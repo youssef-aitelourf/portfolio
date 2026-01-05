@@ -19,7 +19,7 @@ pro_projects = [p for p in projects if "pro" in p.get("tags", [])]
 personal_projects = [p for p in projects if "academic" in p.get("tags", []) or "personal" in p.get("tags", [])]
 
 # Créer les onglets
-tab1, tab2 = st.tabs(["💼 Projets dans le cadre de stages", "🚀 Projets personnels"])
+tab1, tab2 = st.tabs(["💼 Expérience professionnelle", "🚀 Portfolio de projets"])
 
 with tab1:
     if not pro_projects:
