@@ -205,5 +205,14 @@
     "github_url": null,
     "demo_url": null,
     "images": []
+  },
+  {
+    "id": "acad-energy-forecasting",
+    "title": "Pipeline de Prévision Énergétique",
+    "description": "Développement d'un pipeline complet de prévision de consommation énergétique utilisant des techniques de machine learning avancées. Le projet combine l'ingestion de données, le feature engineering, l'entraînement de modèles prédictifs et une interface interactive Streamlit pour visualiser les prévisions en temps réel.\n\n**Contexte** : La prévision précise de la consommation énergétique est cruciale pour optimiser les opérations énergétiques et réduire les coûts.\n\n**Objectif** : Créer un système capable de prédire la consommation énergétique avec une haute précision et de présenter les résultats de manière interactive et accessible.\n\n**Solution Développée** :\n- Pipeline ETL robuste pour l'ingestion et le nettoyage des données énergétiques\n- Feature engineering avancé avec création d'indicateurs temporels et saisonniers\n- Entraînement et comparaison de multiples modèles ML (régression, séries temporelles, réseaux de neurones)\n- Interface Streamlit interactive pour visualisation et interprétation des prévisions\n- Déploiement cloud automatisé et mise à jour des modèles\n\n**Technologies** : Python, Pandas, Scikit-learn, TensorFlow/Keras, Apache Spark, Streamlit, SQL.\n\n**Impact** : Système de prévision opérationnel accessible via interface web, permettant aux utilisateurs de visualiser les tendances énergétiques et d'optimiser leur consommation basée sur les prévisions.",
+    "tags": ["academic", "time-series", "ml", "energy", "streamlit"],
+    "github_url": "https://github.com/youssef-aitelourf/energy-forecasting-pipeline.git",
+    "demo_url": "https://energy-forecasting-pipeline-jz3pmgtopcgsaq5hqtaxeh.streamlit.app",
+    "images": []
   }
 ]
