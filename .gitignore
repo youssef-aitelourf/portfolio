@@ -4,3 +4,10 @@ __pycache__/
 .streamlit/secrets.toml
 .env
 .DS_Store
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+cv-ats.pdf
