@@ -24,12 +24,22 @@ def render_project_card(project: Dict):
             if project.get("github_url"):
                 st.link_button("GitHub", project["github_url"], type="primary")
             else:
-                st.button("GitHub", disabled=True, help="No GitHub URL provided")
+                st.button(
+                    "GitHub",
+                    disabled=True,
+                    help="No GitHub URL provided",
+                    key=f"gh-missing-{project.get('id', '')}",
+                )
         with button_cols[1]:
             if project.get("demo_url"):
                 st.link_button("Live Demo", project["demo_url"], type="secondary")
             else:
-                st.button("Live Demo", disabled=True, help="No live demo URL provided")
+                st.button(
+                    "Live Demo",
+                    disabled=True,
+                    help="No live demo URL provided",
+                    key=f"demo-missing-{project.get('id', '')}",
+                )
 
         images: List[str] = project.get("images", []) or []
         if images:

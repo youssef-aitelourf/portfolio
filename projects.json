@@ -1,34 +1,210 @@
 [
   {
-    "id": "churn-prediction",
-    "title": "Customer Churn Prediction",
-    "description": "End-to-end pipeline to predict churn for a telecom provider with SHAP-based explainability and monitoring dashboards.",
-    "tags": ["ML", "Classification", "MLOps"],
-    "github_url": "https://github.com/example/churn-prediction",
-    "demo_url": "https://example.com/churn-demo",
-    "images": [
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a",
-      "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e"
-    ]
-  },
-  {
-    "id": "nlp-qa",
-    "title": "NLP Question Answering",
-    "description": "Retriever-reader system with hybrid search, evaluation harness, and latency-optimized serving.",
-    "tags": ["NLP", "RAG", "Evaluation"],
-    "github_url": "https://github.com/example/nlp-qa",
-    "demo_url": "https://example.com/nlp-qa",
+    "id": "pro-transcription-appels",
+    "title": "Transcription & Analyse d'Appels",
+    "description": "Pipeline AssemblyAI + LLM pour transcriptions diarisees et résumés injectés dans le CRM (gain 100% du temps de saisie).",
+    "tags": ["pro", "contact-center", "nlp", "genai"],
+    "github_url": null,
+    "demo_url": null,
     "images": []
   },
   {
-    "id": "time-series-forecast",
-    "title": "Time Series Forecasting",
-    "description": "Probabilistic forecasting for demand planning using feature-rich LightGBM models and backtesting utilities.",
-    "tags": ["Time Series", "Forecasting", "LightGBM"],
-    "github_url": "https://github.com/example/time-series-forecast",
-    "demo_url": "https://example.com/forecast-demo",
-    "images": [
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7"
-    ]
+    "id": "pro-fiches-clients",
+    "title": "Création Automatique de Fiches Clients",
+    "description": "Enrichissement CRM + reformulation LLM pour générer des fiches structurées en quelques secondes (3–5 min -> secondes).",
+    "tags": ["pro", "crm", "rag", "genai"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "pro-reponses-sms",
+    "title": "Génération de Réponses SMS",
+    "description": "Agent SMS contextuel (GPT/Mistral) avec validation humaine; délai de réponse divisé par 5.",
+    "tags": ["pro", "messaging", "nlp", "genai"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "pro-mails-suivi",
+    "title": "Récap d'Appel & Mails Personnalisés",
+    "description": "Génération de mails de suivi post-appel (résumé, devis) via LLM fine-tuné GCP + Gmail API; 10 min -> secondes.",
+    "tags": ["pro", "automation", "nlp", "genai"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "pro-matching-tuteurs",
+    "title": "Algorithme de Matching Tuteurs",
+    "description": "Scoring ML multi-critères pour demandes niches; recherche 1h -> quelques secondes.",
+    "tags": ["pro", "ml", "ranking", "digitalocean"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "pro-agent-rh-julie",
+    "title": "Agent IA RH \"Julie\"",
+    "description": "Agent RAG connecté (Gmail, Calendly, CRM) pour RH et référente tuteurs; forte réduction charge admin.",
+    "tags": ["pro", "rag", "automation", "hr"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "pro-prospection-ecoles",
+    "title": "Agent de Prospection B2B Écoles",
+    "description": "Scraping + prompt enrichi + LLM pour emails personnalisés; >10 écoles signées.",
+    "tags": ["pro", "scraping", "genai", "sales"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+
+  {
+    "id": "acad-timeseries-finance",
+    "title": "Prévision Séries Temporelles Financières",
+    "description": "LSTM/Transformer vs ARIMA pour rendements indices/actions; MAE/RMSE -40% vs baseline.",
+    "tags": ["academic", "finance", "time-series", "pytorch"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-bert-compliance",
+    "title": "Classification Docs Financiers (BERT)",
+    "description": "Fine-tuning BERT multi-étiquettes pour risque/conformité; F1 macro ~0.87 sur 10k docs.",
+    "tags": ["academic", "nlp", "bert", "compliance"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-etl-spark",
+    "title": "Pipeline ETL & EDA Big Data",
+    "description": "Ingestion Spark >500Mo, normalisation/jointures, EDA Plotly; x3 plus rapide que flux local.",
+    "tags": ["academic", "data-eng", "spark", "eda"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-rl-boursier",
+    "title": "Prédiction Boursière par RL",
+    "description": "Agent RL pour décision trading actions; benchmark indicateurs techniques.",
+    "tags": ["academic", "finance", "reinforcement-learning"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-analytics-cinema",
+    "title": "Analyse de Données Cinématographiques",
+    "description": "EDA sur films 1990-2010 pour tendances industrie (genres, box office).",
+    "tags": ["academic", "eda", "visualization"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-bigdata-warehouse",
+    "title": "Big Data & Data Warehouse",
+    "description": "Pipelines hétérogènes avec Neo4j pour non structuré et MySQL pour OLAP.",
+    "tags": ["academic", "big-data", "neo4j", "mysql"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-immo-fr",
+    "title": "Analyse Marché Immobilier Français",
+    "description": "Classification tendances marché par type de bien, localisation, prix avec PySpark.",
+    "tags": ["academic", "pyspark", "real-estate", "ml"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-rpg-sante",
+    "title": "Jeu RPG Données de Santé",
+    "description": "Gameplay basé sur données sport/sommeil pour gamifier l'activité physique.",
+    "tags": ["personal", "game", "health"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-nasdaq-app",
+    "title": "App d'Analyse Boursière NASDAQ",
+    "description": "Application d'analyse/prédiction NASDAQ avec indicateurs RSI/MACD.",
+    "tags": ["academic", "finance", "app"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-echecs-ia",
+    "title": "Jeu d'Échecs avec IA",
+    "description": "Interface Java + logique IA Python pour jeu d'échecs.",
+    "tags": ["personal", "game", "ai"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-morpion-ia",
+    "title": "Tic Tac Toe IA",
+    "description": "Jeu de morpion avec IA backend Python et interface Java.",
+    "tags": ["personal", "game", "ai"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-fitness-nutrition",
+    "title": "App Fitness & Nutrition",
+    "description": "Application iOS intégrant programmes de fitness et conseils nutritionnels.",
+    "tags": ["personal", "mobile", "health"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-bataille-navale",
+    "title": "Jeu Bataille Navale (C)",
+    "description": "Jeu de bataille navale en C sans libs externes (hors stdlib/stdio).",
+    "tags": ["personal", "game", "c"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-visionnage-films-ia",
+    "title": "Visionnage de Films avec IA",
+    "description": "Lecteur local avec extraction automatique titre/année/résumé via IA.",
+    "tags": ["personal", "app", "nlp"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-reconnaissance-vocale-arduino",
+    "title": "Dispositif de Reconnaissance Vocale",
+    "description": "Module Arduino + réseaux neuronaux pour reconnaissance vocale embarquée.",
+    "tags": ["personal", "iot", "voice"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-jarvis-llm",
+    "title": "Adaptation LLM type JARVIS",
+    "description": "Adaptation de LLM open-source pour automatiser des tâches quotidiennes sur PC.",
+    "tags": ["personal", "genai", "automation"],
+    "github_url": null,
+    "demo_url": null,
+    "images": []
   }
 ]
