@@ -37,4 +37,5 @@ def render_project_card(project: Dict):
             img_cols = st.columns(min(3, len(images)))
             for idx, image_url in enumerate(images):
                 with img_cols[idx % len(img_cols)]:
-                    st.image(image_url, use_column_width=True)
+                    # use_container_width avoids deprecated use_column_width
+                    st.image(image_url, use_container_width=True)
