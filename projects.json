@@ -198,21 +198,30 @@
     "images": []
   },
   {
-    "id": "acad-jarvis-llm",
-    "title": "Adaptation LLM type JARVIS",
-    "description": "Adaptation de modèles de langage open-source pour créer un assistant personnel type \"JARVIS\" pour ordinateur personnel. Automatise des tâches quotidiennes courantes (gestion d'emails, rappels, recherche, commandes système) via interactions en langage naturel. Approche d'assistant IA généraliste et polyvalent.\n\n**Technologies** : Python, C.",
-    "tags": ["personal", "genai", "automation"],
-    "github_url": null,
-    "demo_url": null,
-    "images": []
-  },
-  {
     "id": "acad-energy-forecasting",
     "title": "Pipeline de Prévision Énergétique",
     "description": "Développement d'un pipeline complet de prévision de consommation énergétique utilisant des techniques de machine learning avancées. Le projet combine l'ingestion de données, le feature engineering, l'entraînement de modèles prédictifs et une interface interactive Streamlit pour visualiser les prévisions en temps réel.\n\n**Contexte** : La prévision précise de la consommation énergétique est cruciale pour optimiser les opérations énergétiques et réduire les coûts.\n\n**Objectif** : Créer un système capable de prédire la consommation énergétique avec une haute précision et de présenter les résultats de manière interactive et accessible.\n\n**Solution Développée** :\n- Pipeline ETL robuste pour l'ingestion et le nettoyage des données énergétiques\n- Feature engineering avancé avec création d'indicateurs temporels et saisonniers\n- Entraînement et comparaison de multiples modèles ML (régression, séries temporelles, réseaux de neurones)\n- Interface Streamlit interactive pour visualisation et interprétation des prévisions\n- Déploiement cloud automatisé et mise à jour des modèles\n\n**Technologies** : Python, Pandas, Scikit-learn, TensorFlow/Keras, Apache Spark, Streamlit, SQL.\n\n**Impact** : Système de prévision opérationnel accessible via interface web, permettant aux utilisateurs de visualiser les tendances énergétiques et d'optimiser leur consommation basée sur les prévisions.",
     "tags": ["academic", "time-series", "ml", "energy", "streamlit"],
     "github_url": "https://github.com/youssef-aitelourf/energy-forecasting-pipeline.git",
     "demo_url": "https://energy-forecasting-pipeline-jz3pmgtopcgsaq5hqtaxeh.streamlit.app",
+    "images": []
+  },
+  {
+    "id": "real-time-sentiment-analytics-spark",
+    "title": "Pipeline d'Analyse de Sentiment sur Réseaux Sociaux",
+    "description": "**Contexte** : L'analyse de sentiment sur les réseaux sociaux génère des volumes massifs de données nécessitant des infrastructures distribuées pour traiter efficacement des millions de messages en temps réel.\n\n**Objectif** : Créer un système scalable capable de classifier automatiquement le sentiment (positif/négatif/neutre) de millions de tweets avec haute précision et des temps de traitement optimisés grâce au calcul distribué.\n\n**Solution Développée** :\n- Pipeline ETL distribué avec Apache Spark pour ingestion de 1.6M tweets en 3.4 secondes\n- Preprocessing NLP complet : nettoyage, tokenization, suppression de 150+ stopwords anglais\n- Feature engineering avancé : 15+ features textuelles (TF-IDF, longueur, emojis, hashtags, mentions)\n- Détection automatique de topics (6 catégories : tech, politique, finance, santé, sports, général)\n- Entraînement et comparaison de 3 modèles ML distribués (Logistic Regression, Naive Bayes, Random Forest)\n- Split train/test 80-20 : 1.1M tweets d'entraînement, 282K tweets de test\n- Script de téléchargement automatique de datasets réels (Sentiment140, Twitter Airline)\n\n**Technologies** : Python, PySpark 3.5, Apache Spark SQL, Spark MLlib, NLP (Tokenization, TF-IDF, StopWordsRemover), Matplotlib, Seaborn, WordCloud, Pandas, NumPy.\n\n**Impact** : Pipeline opérationnel traitant 1.6 million de tweets avec 98% de rétention après nettoyage. Meilleur modèle (Logistic Regression) atteint 71.02% d'accuracy avec F1-score de 0.71 sur 282K tweets de test. Système scalable démontrant la capacité à gérer des volumes massifs de données textuelles avec architecture distribuée.",
+    "tags": ["academic", "big-data", "nlp", "spark", "ml", "sentiment-analysis", "distributed-computing"],
+    "github_url": "https://github.com/youssef-aitelourf/real-time-sentiment-analytics-spark",
+    "demo_url": null,
+    "images": []
+  },
+  {
+    "id": "acad-jarvis-llm",
+    "title": "Adaptation LLM type JARVIS",
+    "description": "Adaptation de modèles de langage open-source pour créer un assistant personnel type \"JARVIS\" pour ordinateur personnel. Automatise des tâches quotidiennes courantes (gestion d'emails, rappels, recherche, commandes système) via interactions en langage naturel. Approche d'assistant IA généraliste et polyvalent.\n\n**Technologies** : Python, C.",
+    "tags": ["personal", "genai", "automation"],
+    "github_url": null,
+    "demo_url": null,
     "images": []
   }
 ]
