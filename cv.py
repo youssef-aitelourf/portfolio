@@ -4,7 +4,7 @@ import streamlit as st
 
 
 st.set_page_config(
-    page_title="🏠 Accueil",
+    page_title="Curriculum Vitae",
     page_icon="📊",
     layout="wide",
 )
