@@ -207,7 +207,7 @@
     "images": []
   },
   {
-    "id": "real-time-sentiment-analytics-spark",
+    "id": "acad-real-time-sentiment-analytics-spark",
     "title": "Pipeline d'Analyse de Sentiment sur Réseaux Sociaux",
     "description": "**Contexte** : L'analyse de sentiment sur les réseaux sociaux génère des volumes massifs de données nécessitant des infrastructures distribuées pour traiter efficacement des millions de messages en temps réel.\n\n**Objectif** : Créer un système scalable capable de classifier automatiquement le sentiment (positif/négatif/neutre) de millions de tweets avec haute précision et des temps de traitement optimisés grâce au calcul distribué.\n\n**Solution Développée** :\n- Pipeline ETL distribué avec Apache Spark pour ingestion de 1.6M tweets en 3.4 secondes\n- Preprocessing NLP complet : nettoyage, tokenization, suppression de 150+ stopwords anglais\n- Feature engineering avancé : 15+ features textuelles (TF-IDF, longueur, emojis, hashtags, mentions)\n- Détection automatique de topics (6 catégories : tech, politique, finance, santé, sports, général)\n- Entraînement et comparaison de 3 modèles ML distribués (Logistic Regression, Naive Bayes, Random Forest)\n- Split train/test 80-20 : 1.1M tweets d'entraînement, 282K tweets de test\n- Script de téléchargement automatique de datasets réels (Sentiment140, Twitter Airline)\n\n**Technologies** : Python, PySpark 3.5, Apache Spark SQL, Spark MLlib, NLP (Tokenization, TF-IDF, StopWordsRemover), Matplotlib, Seaborn, WordCloud, Pandas, NumPy.\n\n**Impact** : Pipeline opérationnel traitant 1.6 million de tweets avec 98% de rétention après nettoyage. Meilleur modèle (Logistic Regression) atteint 71.02% d'accuracy avec F1-score de 0.71 sur 282K tweets de test. Système scalable démontrant la capacité à gérer des volumes massifs de données textuelles avec architecture distribuée.",
     "tags": ["academic", "big-data", "nlp", "spark", "ml", "sentiment-analysis", "distributed-computing"],
@@ -225,10 +225,10 @@
     "images": []
   },
   {
-    "id": "ai-architect-simulator",
+    "id": "acad-ai-architect-simulator",
     "title": "AI Architect Simulator",
     "description": "Contexte : Choisir entre fine-tuning, RAG, base vectorielle ou approche hybride est complexe et dépend de contraintes de données, budget, latence et confidentialité.\n\nObjectif : Offrir un simulateur interactif qui recommande l’architecture LLM la plus adaptée (Fine-Tuning, RAG, Vector DB, Hybrid) en expliquant les raisons, avantages, limites et une alternative.\n\nSolution Développée :\n- Moteur de décision rule-based (score 0-100) sur 8 dimensions : types/volume de données, fréquence de mise à jour, budget, latence, confidentialité, priorité qualité, spécificité domaine\n- 4 stratégies évaluées : Fine-Tuning, RAG, Vector DB only, Hybrid (RAG + FT) avec explications, pros/cons, alternative\n- Interfaces : CLI interactive (couleurs) et Web Streamlit (cartes, bar chart comparatif, expanders de détail)\n- 6 scénarios réels fournis (support client, légal, recherche code, médical, MVP, finance temps réel)\n- Tests unitaires (11 tests, 100% pass) + exemples quick start\n- Documentation complète (README, Quickstart, Demo, Git setup)\n\nTechnologies : Python 3.9+, Streamlit, dataclasses, Enum, pandas (visualisation scores), CLI ANSI, pytest, pyproject/requirements.\n\nImpact : Décision éclairée et transparente sur l’architecture LLM, réduction du temps d’exploration, support portfolio avec code propre, testable et déployé (Streamlit Cloud).",
-    "tags": ["llm", "rag", "fine-tuning", "vector-db", "hybrid", "architecture", "decision-support", "python", "streamlit", "cli"],
+    "tags": ["personal", "llm", "rag", "fine-tuning", "vector-db", "hybrid", "architecture", "decision-support", "python", "streamlit", "cli"],
     "github_url": "https://github.com/youssef-aitelourf/ai-architect-simulator",
     "demo_url": "https://ai-architect-simulator.streamlit.app",
     "images": []
