@@ -223,5 +223,14 @@
     "github_url": null,
     "demo_url": null,
     "images": []
+  },
+  {
+    "id": "ai-architect-simulator",
+    "title": "AI Architect Simulator",
+    "description": "Contexte : Choisir entre fine-tuning, RAG, base vectorielle ou approche hybride est complexe et dépend de contraintes de données, budget, latence et confidentialité.\n\nObjectif : Offrir un simulateur interactif qui recommande l’architecture LLM la plus adaptée (Fine-Tuning, RAG, Vector DB, Hybrid) en expliquant les raisons, avantages, limites et une alternative.\n\nSolution Développée :\n- Moteur de décision rule-based (score 0-100) sur 8 dimensions : types/volume de données, fréquence de mise à jour, budget, latence, confidentialité, priorité qualité, spécificité domaine\n- 4 stratégies évaluées : Fine-Tuning, RAG, Vector DB only, Hybrid (RAG + FT) avec explications, pros/cons, alternative\n- Interfaces : CLI interactive (couleurs) et Web Streamlit (cartes, bar chart comparatif, expanders de détail)\n- 6 scénarios réels fournis (support client, légal, recherche code, médical, MVP, finance temps réel)\n- Tests unitaires (11 tests, 100% pass) + exemples quick start\n- Documentation complète (README, Quickstart, Demo, Git setup)\n\nTechnologies : Python 3.9+, Streamlit, dataclasses, Enum, pandas (visualisation scores), CLI ANSI, pytest, pyproject/requirements.\n\nImpact : Décision éclairée et transparente sur l’architecture LLM, réduction du temps d’exploration, support portfolio avec code propre, testable et déployé (Streamlit Cloud).",
+    "tags": ["llm", "rag", "fine-tuning", "vector-db", "hybrid", "architecture", "decision-support", "python", "streamlit", "cli"],
+    "github_url": "https://github.com/youssef-aitelourf/ai-architect-simulator",
+    "demo_url": "https://ai-architect-simulator.streamlit.app",
+    "images": []
   }
 ]
