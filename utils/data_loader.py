@@ -32,7 +32,9 @@ def load_projects() -> List[Dict]:
         normalized.append({
             "id": item.get("id", "unknown"),
             "title": item.get("title", "Untitled"),
+            "title_en": item.get("title_en", item.get("title", "Untitled")),
             "description": item.get("description", ""),
+            "description_en": item.get("description_en", item.get("description", "")),
             "tags": item.get("tags", []),
             "github_url": item.get("github_url"),
             "demo_url": item.get("demo_url"),
@@ -40,3 +42,4 @@ def load_projects() -> List[Dict]:
         })
 
     return normalized
+

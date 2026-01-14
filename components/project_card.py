@@ -2,12 +2,16 @@ from typing import List, Dict
 import streamlit as st
 
 
-def render_project_card(project: Dict):
+def render_project_card(project: Dict, lang: str = "fr"):
     """Render a project card with title, description, tags, and action buttons."""
+    # Select language version of title and description
+    title = project.get("title_en") if lang == "en" else project.get("title", "Untitled")
+    description = project.get("description_en") if lang == "en" else project.get("description", "")
+    
     with st.container(border=True):
         header_cols = st.columns([4, 1])
         with header_cols[0]:
-            st.subheader(project.get("title", "Untitled"))
+            st.subheader(title)
             st.caption(
                 ", ".join(project.get("tags", [])) or "No tags provided"
             )
@@ -17,7 +21,7 @@ def render_project_card(project: Dict):
                 help="Stable identifier used in projects.json",
             )
 
-        st.write(project.get("description", "No description provided."))
+        st.write(description or "No description provided.")
 
         button_cols = st.columns(2)
         with button_cols[0]:

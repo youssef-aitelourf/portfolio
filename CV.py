@@ -2,6 +2,9 @@ from pathlib import Path
 
 import streamlit as st
 
+from utils.translations import get_text
+from utils.cv_translations import get_cv_text
+
 
 st.set_page_config(
     page_title="Curriculum Vitae",
@@ -9,194 +12,214 @@ st.set_page_config(
     layout="wide",
 )
 
+# Initialize language in session state
+if "language" not in st.session_state:
+    st.session_state.language = "en"
+
+# Language selector in sidebar
+with st.sidebar:
+    st.markdown(get_text("language", "fr"))
+    lang_cols = st.columns(2)
+    with lang_cols[0]:
+        if st.button("🇫🇷 FR", use_container_width=True, key="btn_fr_cv"):
+            st.session_state.language = "fr"
+    with lang_cols[1]:
+        if st.button("🇬🇧 EN", use_container_width=True, key="btn_en_cv"):
+            st.session_state.language = "en"
+
 # Contact + resources
 NAME = "Youssef AIT ELOURF"
 EMAIL = "youssef.aitelourf@gmail.com"
 PHONE = "+1 (581) 672-2103"
 LINKEDIN = "https://www.linkedin.com/in/youssef-ait-elourf-223316355/"
 GITHUB = "https://github.com/youssef-aitelourf"
-CV_PATH = Path(__file__).resolve().parent / "cv.pdf"
+CV_FR = Path(__file__).resolve().parent / "cv-fr.pdf"
+CV_EN = Path(__file__).resolve().parent / "cv-en.pdf"
 
+lang = st.session_state.language
 
 # En-tête avec nom et coordonnées
 st.title(NAME)
 st.markdown(f"{EMAIL} | {PHONE} | [LinkedIn]({LINKEDIN})")
 
 # Boutons d'actions
-btn_cols = st.columns([1, 1, 1, 6])
+btn_cols = st.columns([1, 1, 1, 1, 4])
+
+# Button 1: Download FR
 with btn_cols[0]:
-    if CV_PATH.exists():
-        with CV_PATH.open("rb") as f:
+    if CV_FR.exists():
+        with CV_FR.open("rb") as f:
             st.download_button(
-                "📄 Télécharger le CV",
+                get_text("download_cv_fr", lang),
                 data=f.read(),
-                file_name="cv.pdf",
+                file_name="cv-fr.pdf",
                 mime="application/pdf",
                 type="primary",
             )
     else:
-        st.button("CV manquant", disabled=True)
+        st.button("CV FR missing", disabled=True)
+
+# Button 2: Download EN
 with btn_cols[1]:
-    st.link_button("💼 LinkedIn", LINKEDIN, type="secondary")
+    if CV_EN.exists():
+        with CV_EN.open("rb") as f:
+            st.download_button(
+                get_text("download_cv_en", lang),
+                data=f.read(),
+                file_name="cv-en.pdf",
+                mime="application/pdf",
+                type="primary",
+            )
+    else:
+        st.button("CV EN missing", disabled=True)
+
+# LinkedIn
 with btn_cols[2]:
-    st.link_button("💻 GitHub", GITHUB, type="secondary")
+    st.link_button(get_text("linkedin", lang), LINKEDIN, type="secondary")
+
+# GitHub
+with btn_cols[3]:
+    st.link_button(get_text("github", lang), GITHUB, type="secondary")
 
 st.divider()
 
 # === PROFIL ===
-st.header("Profil")
-st.markdown(
-    """
-    Étudiant en dernière année de cycle ingénieur Data & IA à l'ECE Paris et en double diplomation à l'UQAR 
-    (Maîtrise en informatique IA et Machine Learning). Passionné par l'IA appliquée et les systèmes de données 
-    à grande échelle. Recherche un **stage à partir de mai 2026 à Montréal/Québec** en tant que 
-    **Machine Learning Engineer, Data Scientist ou Data Engineer**, avec un intérêt particulier pour les systèmes 
-    multi-agents, le NLP et l'IA générative appliquée aux domaines industriel, santé et finance.
-    """
-)
+st.header(get_text("profile", lang))
+st.markdown(get_text("profile_text", lang))
 
 st.divider()
 
 # === ONGLETS CV ===
-tab1, tab2, tab3, tab4 = st.tabs(["💼 Expériences", "🎓 Formation", "🛠️ Compétences", "🌍 Langues & Certifications"])
+tab1, tab2, tab3, tab4 = st.tabs([
+    get_text("experiences", lang),
+    get_text("education", lang),
+    get_text("skills", lang),
+    get_text("languages_certifications", lang)
+])
 
 with tab1:
-    st.subheader("Ingénieur en Machine Learning et Intelligence artificielle - Temps partiel")
-    st.caption("Eddmon et Le Kompa | Août 2025 - Nov. 2025 | À distance (Canada) - Entreprise basée à Paris, France")
-    st.markdown(
-        """
-        - Contribution active à la stratégie IA de l'entreprise (agents multi-domaines, NLP, IA générative).
-        - Optimisation et maintenance continue des modèles en production, réduisant les coûts cloud de **~15%**.
-        - Développement de nouveaux projets IA parallèlement à mes études, générant un gain estimé de **4 à 6h/semaine** pour les équipes métiers.
-        """
-    )
+    # Experience 1
+    st.subheader(get_cv_text("exp1_title", lang))
+    st.caption(get_cv_text("exp1_company", lang))
+    for bullet in get_cv_text("exp1_bullets", lang):
+        st.markdown(f"- {bullet}")
 
-    st.subheader("Ingénieur en Machine Learning et Intelligence artificielle - Stagiaire")
-    st.caption("Eddmon | Avril 2025 - Août 2025 | Paris, France")
-    st.markdown(
-        """
-        - Développement et déploiement d'agents IA intégrés au CRM et aux outils métiers, avec un taux d'adoption **> 80%** par les équipes.
-        - Mise en production d'outils adoptés par les équipes RH, Sales et CSM, réduisant le temps de traitement de certaines tâches de plusieurs minutes à **quelques secondes**.
-        - **Projets réalisés** :
-            - Transcription et analyse d'appels (comptes-rendus instantanés, gain de **100%** de temps de saisie)
-            - Génération automatique de fiches clients (**3–5 min → quelques secondes**)
-            - Réponses SMS/mails (délai de réponse **divisé par 5**)
-            - Algorithme de matching pour demandes spécifiques (**1h → quelques secondes**)
-        - **Outils** : Python, Hugging Face, LangChain, SQL, Docker, Google Cloud Platform, DigitalOcean.
-        """
-    )
+    st.divider()
 
-    st.subheader("Architecte réseaux et cybersécurité - Stagiaire")
-    st.caption("ACG Cybersecurity | Juin 2023 - Août 2023 | Paris, France")
-    st.markdown(
-        """
-        - Conception d'architectures réseaux sécurisées (segmentation, firewalls, VPN, IDS/IPS), contribuant à réduire le risque d'incident critique de **~20%**.
-        - Audit des infrastructures existantes et recommandations d'amélioration, mises en œuvre sur **3 projets clients**.
-        - **Outils** : Cisco Packet Tracer, Wireshark, Nessus, protocoles VPN/IPSec/SSL.
-        """
-    )
+    # Experience 2
+    st.subheader(get_cv_text("exp2_title", lang))
+    st.caption(get_cv_text("exp2_company", lang))
+    for bullet in get_cv_text("exp2_bullets", lang):
+        st.markdown(f"- {bullet}")
+
+    st.divider()
+
+    # Experience 3
+    st.subheader(get_cv_text("exp3_title", lang))
+    st.caption(get_cv_text("exp3_company", lang))
+    for bullet in get_cv_text("exp3_bullets", lang):
+        st.markdown(f"- {bullet}")
 
 with tab2:
-    st.subheader("Maîtrise en informatique - IA et Machine Learning")
-    st.caption("Université du Québec à Rimouski (UQAR) | 2025 - 2026 | Rimouski, Canada")
+    # Education 1
+    st.subheader(get_cv_text("edu1_title", lang))
+    st.caption(get_cv_text("edu1_school", lang))
     
-    st.markdown("**Hiver 2026 (H26)**")
-    st.markdown(
-        """
-        - [Traitement numérique des images – 8INF804](https://www.uqar.ca/cours/traitement-numerique-des-images/)
-        - [Gestion de projets informatiques – 8INF847](https://www.uqar.ca/cours/gestion-de-projets-informatiques/)
-        - [Métaheuristiques en optimisation – 8INF852](https://www.uqar.ca/cours/metaheuristiques-en-optimisation/)
-        - [Management des équipes de projet – MGP7130](https://www.uqar.ca/cours/management-des-equipes-de-projet/)
-        """
-    )
+    st.markdown(f"**{get_cv_text('edu1_h26_label', lang)}**")
+    for course in get_cv_text("edu1_h26", lang):
+        st.markdown(f"- {course}")
     
-    st.markdown("**Automne 2025 (A25)**")
-    st.markdown(
-        """
-        - [Structures de données avancées et leurs algorithmes – 8INF840](https://www.uqar.ca/cours/structures-de-donnees-avancees-et-leurs-algorithmes/)
-        - [Intelligence artificielle – 8INF846](https://www.uqar.ca/cours/intelligence-artificielle/)
-        - [Génie logiciel – 8INF851](https://www.uqar.ca/cours/genie-logiciel/)
-        - [Sécurité informatique – 8INF857](https://www.uqar.ca/cours/securite-informatique/)
-        - [Sujets spéciaux – 8INF950](https://www.uqar.ca/cours/sujets-speciaux/)
-        """
-    )
-    
-    st.subheader("Diplôme d'ingénieur d'état - Data et Intelligence Artificielle")
-    st.caption("École centrale d'électronique de Paris (ECE Paris) | 2022 - 2026 | Paris, France")
-    st.markdown("[Programme Big Data & Analytics](https://www.ece.fr/en/program/engineering-degree-bac4-big-data-analytics-major/)")
+    st.markdown(f"**{get_cv_text('edu1_a25_label', lang)}**")
+    for course in get_cv_text("edu1_a25", lang):
+        st.markdown(f"- {course}")
+
+    st.divider()
+
+    # Education 2
+    st.subheader(get_cv_text("edu2_title", lang))
+    st.caption(get_cv_text("edu2_school", lang))
+    st.markdown(f"[{get_cv_text('edu2_program', lang)}]")
     
     courses_col1, courses_col2 = st.columns(2)
     
     with courses_col1:
-        st.markdown("**Semestre 8 (S8) – ING4 – Majeure Data & IA**")
-        st.markdown("*Management :* Management des entreprises, Management des systèmes d'information, Management de la relation individuelle")
-        st.markdown("*Technologie & Informatique :* Cloud Computing, Data Integration, Advanced Machine Learning, Mathematics for Data Scientists, Functional Programming, NoSQL Databases")
+        st.markdown(f"**{get_cv_text('edu2_s8', lang)}**")
+        st.markdown(f"*{get_cv_text('edu2_s8_management', lang)}*")
+        for item in get_cv_text("edu2_s8_management_items", lang):
+            st.markdown(f"- {item}")
+        st.markdown(f"*{get_cv_text('edu2_s8_tech', lang)}*")
+        for item in get_cv_text("edu2_s8_tech_items", lang):
+            st.markdown(f"- {item}")
         
-        st.markdown("**Semestre 6 (S6) – ING3**")
-        st.markdown("*Management :* Analyse financière et économique, Droit du travail")
-        st.markdown("*Technologie & Informatique :* Programmation orientée objet Java, Initiation aux réseaux, Probabilités et statistiques, Calcul embarqué et traitement numérique du signal, MOOC Nanotechnologies")
-    
+        st.markdown(f"**{get_cv_text('edu2_s6', lang)}**")
+        st.markdown(f"*{get_cv_text('edu2_s6_management', lang)}*")
+        for item in get_cv_text("edu2_s6_management_items", lang):
+            st.markdown(f"- {item}")
+        st.markdown(f"*{get_cv_text('edu2_s6_tech', lang)}*")
+        for item in get_cv_text("edu2_s6_tech_items", lang):
+            st.markdown(f"- {item}")
+
     with courses_col2:
-        st.markdown("**Semestre 7 (S7) – ING4 – Majeure Data & IA**")
-        st.markdown("*Management :* Gestion budgétaire, Management d'équipe")
-        st.markdown("*Technologie & Informatique :* Bases de données avancées, Systèmes d'exploitation, Big Data Framework, Introduction to Business Intelligence, Data Visualisation, Introduction to Machine Learning, Data Science with Python")
+        st.markdown(f"**{get_cv_text('edu2_s7', lang)}**")
+        st.markdown(f"*{get_cv_text('edu2_s7_management', lang)}*")
+        for item in get_cv_text("edu2_s7_management_items", lang):
+            st.markdown(f"- {item}")
+        st.markdown(f"*{get_cv_text('edu2_s7_tech', lang)}*")
+        for item in get_cv_text("edu2_s7_tech_items", lang):
+            st.markdown(f"- {item}")
         
-        st.markdown("**Semestre 5 (S5) – ING3**")
-        st.markdown("*Management :* Bases de gestion / Fundamentals of Business")
-        st.markdown("*Technologie & Informatique :* Algorithmique et programmation structurée, Bases de données, Programmation Web, Prototypage électronique")
-    
-    st.subheader("Classes préparatoires MPSI/PSI")
-    st.caption("Lycée Franklin D. Roosevelt | 2020 - 2022 | Reims, France")
+        st.markdown(f"**{get_cv_text('edu2_s5', lang)}**")
+        st.markdown(f"*{get_cv_text('edu2_s5_management', lang)}*")
+        for item in get_cv_text("edu2_s5_management_items", lang):
+            st.markdown(f"- {item}")
+        st.markdown(f"*{get_cv_text('edu2_s5_tech', lang)}*")
+        for item in get_cv_text("edu2_s5_tech_items", lang):
+            st.markdown(f"- {item}")
+
+    st.divider()
+
+    # Education 3
+    st.subheader(get_cv_text("edu3_title", lang))
+    st.caption(get_cv_text("edu3_school", lang))
 
 with tab3:
     comp_col1, comp_col2 = st.columns(2)
     with comp_col1:
         st.markdown(
-            """
-            **Langages**  
-            Python, R, Java, SQL, Scala
+            f"""
+            **{get_cv_text('skills_languages', lang)}**  
+            {get_cv_text('skills_languages_items', lang)}
             
-            **IA, LLMs & ML**  
-            PyTorch, TensorFlow, Scikit-learn, Keras, LangChain, Hugging Face, Pandas, NumPy, XGBoost, Transformers, Vector Databases (Pinecone)
+            **{get_cv_text('skills_ai_ml', lang)}**  
+            {get_cv_text('skills_ai_ml_items', lang)}
             
-            **Big Data**  
-            Apache Spark, Hadoop, Koalas
+            **{get_cv_text('skills_big_data', lang)}**  
+            {get_cv_text('skills_big_data_items', lang)}
             """
         )
 
     with comp_col2:
         st.markdown(
-            """
-            **Bases de données**  
-            MySQL, PostgreSQL, MongoDB, NoSQL
+            f"""
+            **{get_cv_text('skills_databases', lang)}**  
+            {get_cv_text('skills_databases_items', lang)}
             
-            **Cloud & DevOps**  
-            Azure (certifié), Amazon Web Services (AWS), Google Cloud Platform (GCP), DigitalOcean, Docker, Kubernetes, MLOps
+            **{get_cv_text('skills_cloud_devops', lang)}**  
+            {get_cv_text('skills_cloud_devops_items', lang)}
             """
         )
 
 with tab4:
     lang_col1, lang_col2 = st.columns(2)
     with lang_col1:
-        st.markdown(
-            """
-            **Langues**
-            - Français (langue maternelle et DALF C1)
-            - Anglais (C1, TOEIC 955)
-            - Arabe (langue maternelle)
-            """
-        )
+        st.markdown(f"**{get_cv_text('lang_spoken', lang)}**")
+        for language in get_cv_text("lang_spoken_items", lang):
+            st.markdown(f"- {language}")
 
     with lang_col2:
-        st.markdown(
-            """
-            **Certifications**
-            - Azure AZ-900
-            - Azure DP-100
-            - MOOC Gestion de projets
-            - Python Data Scientist
-            """
-        )
+        st.markdown(f"**{get_cv_text('lang_certifications', lang)}**")
+        for cert in get_cv_text("lang_certifications_items", lang):
+            st.markdown(f"- {cert}")
 
 st.divider()
-st.caption("💡 Utilisez la barre latérale pour naviguer vers Projects, About, ou CV.")
+st.caption(get_text("sidebar_help", lang))

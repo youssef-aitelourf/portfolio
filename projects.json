@@ -2,8 +2,15 @@
   {
     "id": "pro-transcription-appels",
     "title": "Transcription & Analyse d'Appels",
+    "title_en": "Call Transcription & Analysis",
     "description": "**Contexte** : Les conseillers perdaient un temps considérable à retranscrire manuellement les appels clients dans le CRM. Le processus était source d'erreurs, d'oublis et manquait d'homogénéité.\n\n**Objectif** : Automatiser la transcription des appels et générer des résumés structurés pour les intégrer directement au CRM, afin de libérer du temps pour les équipes et fiabiliser le suivi client.\n\n**Solution Développée** :\n- Capture et Transcription : Utilisation de l'API AssemblyAI pour la transcription des appels, choisie pour la haute qualité de sa diarisation (séparation des interlocuteurs).\n- Analyse IA : Un modèle de langage enrichit la transcription avec les données du CRM (historique client, etc.), puis génère un résumé clair, les points clés de la demande et des propositions d'actions (création de ticket, relance, etc.).\n- Intégration : Les résultats sont injectés directement dans le CRM via Laravel Cloud, rendant l'information accessible à toute l'équipe en temps réel.\n\n**Technologies** : AssemblyAI, Python, Modèles de Langage (Mistral, GPT), Laravel Cloud, n8n.\n\n**Impact** : Gain de 100% du temps de saisie manuelle pour les conseillers, amélioration de l'homogénéité et de la fiabilité des données dans le CRM, et réactivité accrue des équipes.",
-    "tags": ["pro", "contact-center", "nlp", "genai"],
+    "description_en": "**Context**: Advisors were spending considerable time manually transcribing customer calls into the CRM. The process was error-prone, prone to omissions, and lacked consistency.\n\n**Objective**: Automate call transcription and generate structured summaries for direct CRM integration, freeing up team time and improving customer follow-up reliability.\n\n**Solution Developed**:\n- Capture and Transcription: Using the AssemblyAI API for call transcription, chosen for its high-quality speaker diarization (speaker separation).\n- AI Analysis: A language model enriches the transcription with CRM data (customer history, etc.), then generates a clear summary, key points of the request, and suggested actions (ticket creation, follow-up, etc.).\n- Integration: Results are injected directly into the CRM via Laravel Cloud, making information accessible to the entire team in real-time.\n\n**Technologies**: AssemblyAI, Python, Language Models (Mistral, GPT), Laravel Cloud, n8n.\n\n**Impact**: 100% gain in manual data entry time for advisors, improved data consistency and reliability in the CRM, and increased team responsiveness.",
+    "tags": [
+      "pro",
+      "contact-center",
+      "nlp",
+      "genai"
+    ],
     "github_url": null,
     "demo_url": null,
     "images": []
@@ -12,225 +19,400 @@
     "id": "pro-fiches-clients",
     "title": "Création Automatique de Fiches Clients",
     "description": "**Contexte** : La saisie manuelle des demandes clients dans le CRM était chronophage et sujette à des erreurs de retranscription. De plus, des propos bruts ou inadaptés pouvaient être transmis aux tuteurs, nuisant à la qualité de la communication.\n\n**Objectif** : Automatiser la création de fiches clients structurées, claires et professionnelles à partir des transcriptions d'appels, en filtrant les informations non pertinentes.\n\n**Solution Développée** :\n- Enrichissement Contextuel : Le système récupère la transcription de l'appel et l'enrichit avec le contexte du CRM (profil du client, historique).\n- Reformulation par IA : Un modèle de langage (GPT ou Mistral fine-tuné) reformule la demande pour en extraire l'essentiel.\n- Filtrage et Génération : L'IA filtre automatiquement les propos inadaptés et génère une fiche client structurée, qui est ensuite intégrée dans le CRM via Laravel Cloud.\n\n**Technologies** : Python, Modèles de Langage (GPT, Mistral), RAG, GCP, Laravel Cloud.\n\n**Impact** : Le temps de création d'une fiche client est passé de 3-5 minutes à quelques secondes. La qualité des données a été améliorée, réduisant les erreurs et professionnalisant les échanges avec les tuteurs.",
-    "tags": ["pro", "crm", "rag", "genai"],
+    "tags": [
+      "pro",
+      "crm",
+      "rag",
+      "genai"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Automatic Client File Creation",
+    "description_en": "**Context**: Manual entry of customer requests into the CRM was time-consuming and prone to transcription errors. Additionally, raw or inappropriate remarks could be passed on to tutors, affecting communication quality.\n\n**Objective**: Automate the creation of structured, clear, and professional client files from call transcriptions, filtering out irrelevant information.\n\n**Solution Developed**:\n- Contextual Enrichment: The system retrieves the call transcription and enriches it with CRM context (customer profile, history).\n- AI Rephrasing: A language model (fine-tuned GPT or Mistral) reformulates the request to extract the essential points.\n- Filtering and Generation: AI automatically filters out inappropriate remarks and generates a structured client file, which is then integrated into the CRM via Laravel Cloud.\n\n**Technologies**: Python, Language Models (GPT, Mistral), RAG, GCP, Laravel Cloud.\n\n**Impact**: Time to create a client file decreased from 3-5 minutes to a few seconds. Data quality improved, reducing errors and professionalizing tutor interactions."
   },
   {
     "id": "pro-reponses-sms",
     "title": "Génération de Réponses SMS",
     "description": "**Contexte** : La gestion du volume élevé de SMS provenant des clients, prospects et tuteurs était une tâche répétitive qui entraînait des délais de réponse variables et une charge de travail importante pour les conseillers.\n\n**Objectif** : Accélérer le traitement des SMS en fournissant aux conseillers des brouillons de réponses personnalisées et contextuelles, qu'ils n'ont plus qu'à valider.\n\n**Solution Développée** :\n- Extraction de Contexte : L'agent récupère le SMS entrant et le contexte associé depuis le CRM (historique des demandes, échanges précédents).\n- Génération de Réponse : Un modèle de langage (GPT fine-tuné ou Mistral) analyse le payload (SMS + contexte) et génère une réponse adaptée, en respectant le ton des conseillers.\n- Validation Humaine : La réponse est transmise comme brouillon au conseiller, qui peut la valider en un clic ou la modifier.\n\n**Technologies** : Modèles de Langage (GPT, Mistral via Ollama), GCP, Python, API internes.\n\n**Impact** : Le délai de réponse aux SMS a été divisé par 5, améliorant significativement la réactivité et la satisfaction client, tout en réduisant le stress opérationnel des équipes.",
-    "tags": ["pro", "messaging", "nlp", "genai"],
+    "tags": [
+      "pro",
+      "messaging",
+      "nlp",
+      "genai"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "SMS Response Generation",
+    "description_en": "**Context**: Managing the high volume of SMS from customers, prospects, and tutors was a repetitive task causing variable response times and significant workload for advisors.\n\n**Objective**: Accelerate SMS processing by providing advisors with personalized, contextual response drafts that need only validation.\n\n**Solution Developed**:\n- Context Extraction: The agent retrieves the incoming SMS and associated context from the CRM (request history, previous exchanges).\n- Response Generation: A language model (fine-tuned GPT or Mistral) analyzes the payload (SMS + context) and generates an appropriate response, respecting advisor tone.\n- Human Validation: The response is sent as a draft to the advisor, who can validate with one click or modify it.\n\n**Technologies**: Language Models (GPT, Mistral via Ollama), GCP, Python, Internal APIs.\n\n**Impact**: SMS response time divided by 5, significantly improving responsiveness and customer satisfaction while reducing operational stress on teams."
   },
   {
     "id": "pro-mails-suivi",
     "title": "Récap d'Appel & Mails Personnalisés",
     "description": "**Contexte** : La rédaction manuelle de mails de suivi après chaque appel (comprenant récapitulatif, devis, facture, etc.) était une tâche longue et fastidieuse, pouvant prendre jusqu'à 10 minutes par conseiller.\n\n**Objectif** : Automatiser la génération de mails de suivi personnalisés, professionnels et cohérents avec la charte de l'entreprise.\n\n**Solution Développée** :\n- Génération de Résumé : Le système utilise la transcription de l'appel enrichie des données CRM pour générer un résumé structuré.\n- Adaptation du Style : Grâce à un fine-tuning sur GCP et à une ingénierie de prompts avancée, l'IA adapte le ton et le style rédactionnel à celui du conseiller concerné.\n- Intégration en Brouillon : Le mail final est automatiquement intégré en tant que brouillon dans la boîte mail professionnelle du conseiller via l'API Gmail, permettant une validation humaine avant envoi.\n\n**Technologies** : AssemblyAI, Python, Modèles de Langage (fine-tuning sur GCP), Gmail API.\n\n**Impact** : Réduction drastique du temps de rédaction, passant de 10 minutes à quelques secondes. Amélioration de l'homogénéité et de la qualité des communications, renforçant l'image de marque de l'entreprise.",
-    "tags": ["pro", "automation", "nlp", "genai"],
+    "tags": [
+      "pro",
+      "automation",
+      "nlp",
+      "genai"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Call Summary & Personalized Emails",
+    "description_en": "**Context**: Manual drafting of follow-up emails after each call (including summary, quote, invoice, etc.) was a long and tedious task, potentially taking up to 10 minutes per advisor.\n\n**Objective**: Automate the generation of personalized, professional follow-up emails consistent with company branding.\n\n**Solution Developed**:\n- Summary Generation: The system uses the enriched call transcription with CRM data to generate a structured summary.\n- Style Adaptation: Through fine-tuning on GCP and advanced prompt engineering, AI adapts tone and writing style to match the specific advisor.\n- Draft Integration: The final email is automatically integrated as a draft into the advisor's professional mailbox via Gmail API, enabling human validation before sending.\n\n**Technologies**: AssemblyAI, Python, Language Models (fine-tuning on GCP), Gmail API.\n\n**Impact**: Drastically reduced writing time, from 10 minutes to a few seconds. Improved consistency and communication quality, strengthening the company's brand image."
   },
   {
     "id": "pro-matching-tuteurs",
     "title": "Algorithme de Matching Tuteurs",
     "description": "**Contexte** : Les demandes très spécifiques (ex: tuteur de mathématiques parlant italien) nécessitaient une recherche manuelle de plusieurs heures dans une base de plus de 4000 tuteurs, avec un faible taux de succès.\n\n**Objectif** : Développer un algorithme capable d'identifier et de classer rapidement les profils de tuteurs les plus pertinents pour les demandes complexes.\n\n**Solution Développée** :\n- Entraînement du Modèle : Un modèle de Machine Learning supervisé a été entraîné sur l'historique des attributions réussies, en utilisant des critères multiples (compétences, disponibilités, localisation, feedbacks clients, etc.).\n- Développement du Scoring : Le modèle génère un score de pertinence pour chaque tuteur actif, produisant une liste restreinte des 10 meilleurs profils pour chaque demande.\n- Déploiement et Interface : L'algorithme a été déployé via une API sur DigitalOcean et intégré à une interface simple permettant aux conseillers de visualiser les suggestions et de valider le choix final.\n\n**Technologies** : Scikit-learn, Python, SQL, DigitalOcean.\n\n**Impact** : Le temps de recherche est passé de plus d'une heure à quelques secondes. Le taux de satisfaction des demandes \"niches\" a été significativement amélioré, transformant une contrainte en avantage compétitif.",
-    "tags": ["pro", "ml", "ranking", "digitalocean"],
+    "tags": [
+      "pro",
+      "ml",
+      "ranking",
+      "digitalocean"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Tutor Matching Algorithm",
+    "description_en": "**Context**: Very specific requests (e.g., math tutor speaking Italian) required several hours of manual search through a database of over 4,000 tutors, with low success rates.\n\n**Objective**: Develop an algorithm capable of quickly identifying and ranking the most relevant tutor profiles for complex requests.\n\n**Solution Developed**:\n- Model Training: A supervised Machine Learning model was trained on successful assignment history, using multiple criteria (skills, availability, location, customer feedback, etc.).\n- Score Development: The model generates a relevance score for each active tutor, producing a shortlist of the 10 best profiles for each request.\n- Deployment and Interface: The algorithm was deployed via API on DigitalOcean and integrated into a simple interface allowing advisors to view suggestions and validate the final choice.\n\n**Technologies**: Scikit-learn, Python, SQL, DigitalOcean.\n\n**Impact**: Search time reduced from over one hour to a few seconds. Satisfaction rate for \"niche\" requests significantly improved, turning a constraint into a competitive advantage."
   },
   {
     "id": "pro-agent-rh-julie",
     "title": "Agent IA RH \"Julie\"",
     "description": "**Contexte** : Le pôle RH faisait face à une charge administrative considérable pour le recrutement (gestion des dossiers, organisation des entretiens) et le suivi des tuteurs (réponse aux questions récurrentes).\n\n**Objectif** : Créer un agent IA polyvalent pour automatiser les tâches RH répétitives et servir de premier point de contact pour les tuteurs.\n\n**Solution Développée** :\n- Base de Connaissances et RAG : Une base documentaire interne (procédures RH, guides) a été créée. L'agent utilise le RAG (Retrieval-Augmented Generation) pour y puiser des informations et fournir des réponses précises.\n- Connexion aux Outils Métiers : \"Julie\" a été connectée à Gmail pour gérer les mails, à Calendly pour organiser les entretiens, et au CRM pour mettre à jour les dossiers.\n- Double Rôle : L'agent a été programmé pour endosser deux rôles : \"Assistante RH\" pour les candidats et \"Référente Tuteurs\" pour les intervenants actifs.\n\n**Technologies** : LangChain, RAG, Vector Databases, Python, Gmail API, Calendly API.\n\n**Impact** : Réduction majeure de la charge administrative du pôle RH, amélioration de l'expérience candidat grâce à des réponses rapides et personnalisées, et communication fluidifiée avec les tuteurs.",
-    "tags": ["pro", "rag", "automation", "hr"],
+    "tags": [
+      "pro",
+      "rag",
+      "automation",
+      "hr"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "HR AI Agent \"Julie\"",
+    "description_en": "**Context**: The HR department faced considerable administrative burden for recruitment (file management, interview scheduling) and tutor follow-up (answering recurring questions).\n\n**Objective**: Create a versatile AI agent to automate repetitive HR tasks and serve as a first point of contact for tutors.\n\n**Solution Developed**:\n- Knowledge Base and RAG: An internal document repository (HR procedures, guides) was created. The agent uses RAG (Retrieval-Augmented Generation) to retrieve information and provide accurate answers.\n- Connection to Business Tools: \"Julie\" was connected to Gmail for email management, Calendly for interview scheduling, and the CRM for file updates.\n- Dual Role: The agent was programmed to take on two roles: \"HR Assistant\" for candidates and \"Tutor Coordinator\" for active tutors.\n\n**Technologies**: LangChain, RAG, Vector Databases, Python, Gmail API, Calendly API.\n\n**Impact**: Major reduction in HR administrative burden, improved candidate experience through fast and personalized responses, and streamlined tutor communication."
   },
   {
     "id": "pro-prospection-ecoles",
     "title": "Agent de Prospection B2B Écoles",
     "description": "**Contexte** : La prospection manuelle d'établissements scolaires pour la filiale Le Kompa était extrêmement chronophage, limitant le volume de contacts et ralentissant la croissance.\n\n**Objectif** : Automatiser la prospection en générant des emails personnalisés et pertinents à grande échelle.\n\n**Solution Développée** :\n- Exploration Web (Scraping) : Un module de scraping analyse les sites web des établissements ciblés pour identifier les activités périscolaires déjà offertes.\n- Génération de Prompt Enrichi : Les informations collectées sont structurées et combinées avec le catalogue de services du Kompa pour créer un prompt très détaillé.\n- Rédaction par IA et Intégration : Un modèle de langage rédige un email de prospection sur mesure, mettant en avant les services complémentaires. Le mail est ensuite envoyé en brouillon dans la boîte des commerciaux via l'API Gmail.\n\n**Technologies** : Python (BeautifulSoup, Scrapy), Modèles de Langage, Gmail API.\n\n**Impact** : A permis de démarcher un volume beaucoup plus important d'écoles avec un haut niveau de personnalisation. Plus de 10 écoles ont été signées grâce au premier contact initié par cet agent, contribuant directement à la rentabilité du Kompa dès sa première année.",
-    "tags": ["pro", "scraping", "genai", "sales"],
+    "tags": [
+      "pro",
+      "scraping",
+      "genai",
+      "sales"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "B2B School Prospecting Agent",
+    "description_en": "**Context**: Manual prospecting of schools for the Le Kompa subsidiary was extremely time-consuming, limiting contact volume and slowing growth.\n\n**Objective**: Automate prospecting by generating personalized and relevant emails at scale.\n\n**Solution Developed**:\n- Web Exploration (Scraping): A scraping module analyzes school websites to identify activities already offered.\n- Enriched Prompt Generation: Collected information is structured and combined with Le Kompa's service catalog to create a detailed prompt.\n- AI Writing and Integration: A language model drafts a custom prospecting email highlighting complementary services. The email is then sent as a draft to sales reps via Gmail API.\n\n**Technologies**: Python (BeautifulSoup, Scrapy), Language Models, Gmail API.\n\n**Impact**: Enabled outreach to a much larger volume of schools with high personalization. Over 10 schools signed up through first contact initiated by this agent, directly contributing to Le Kompa's profitability in its first year."
   },
   {
     "id": "acad-timeseries-finance",
     "title": "Prévision Séries Temporelles Financières",
     "description": "**Contexte** : Besoin de modéliser l'évolution de rendements d'indices et d'actions pour explorer des scénarios de risque de marché et de stress.\n\n**Objectif** : Construire un modèle de prévision de séries temporelles capable de mieux capter les dynamiques non linéaires qu'un modèle classique (ARIMA, régression).\n\n**Solution Développée** :\n- Constitution d'un dataset de plusieurs années de données financières (indices, actions), feature engineering (retours log, volatilité, moyennes mobiles).\n- Entraînement et comparaison de modèles LSTM et Transformer (PyTorch) vs baseline ARIMA.\n\n**Technologies** : Python, PyTorch, Pandas, scikit-learn, Matplotlib, Plotly.\n\n**Résultats** : Réduction de la MAE/RMSE d'environ 40% par rapport à la baseline, meilleure capture des chocs de volatilité et amélioration de la qualité des scénarios de stress test.",
-    "tags": ["academic", "finance", "time-series", "pytorch"],
+    "tags": [
+      "academic",
+      "finance",
+      "time-series",
+      "pytorch"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Financial Time Series Forecasting",
+    "description_en": "**Context**: Need to model index and stock return evolution to explore market risk scenarios and stress testing.\n\n**Objective**: Build a time series forecasting model capable of better capturing non-linear dynamics than classical models (ARIMA, regression).\n\n**Solution Developed**:\n- Dataset Creation: Multiple years of financial data (indices, stocks), feature engineering (log returns, volatility, moving averages).\n- Model Training and Comparison: LSTM and Transformer models (PyTorch) trained and compared vs baseline ARIMA.\n\n**Technologies**: Python, PyTorch, Pandas, scikit-learn, Matplotlib, Plotly.\n\n**Results**: ~40% reduction in MAE/RMSE compared to baseline, better capture of volatility shocks, and improved stress test scenario quality."
   },
   {
     "id": "acad-bert-compliance",
     "title": "Classification Docs Financiers (BERT)",
     "description": "**Contexte** : Les institutions financières manipulent un grand volume de documents (rapports, mails, notes internes) qu'il est coûteux de catégoriser manuellement (risque opérationnel, conformité, client, etc.).\n\n**Objectif** : Automatiser la classification de documents texte en plusieurs catégories liées au risque et à la conformité pour accélérer l'analyse et prioriser les cas critiques.\n\n**Solution Développée** :\n- Constitution d'un corpus de textes annotés, prétraitement (tokenisation, nettoyage).\n- Fine-tuning d'un modèle BERT (Hugging Face Transformers) pour classification multi-étiquettes.\n\n**Technologies** : Python, Transformers (BERT), Hugging Face, scikit-learn, Matplotlib/Seaborn.\n\n**Résultats** : F1-score macro ≈ 0.87 sur ~10k documents ; réduction significative du temps de tri manuel et meilleure détection des contenus sensibles (risque/compliance).",
-    "tags": ["academic", "nlp", "bert", "compliance"],
+    "tags": [
+      "academic",
+      "nlp",
+      "bert",
+      "compliance"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Financial Document Classification (BERT)",
+    "description_en": "**Context**: Financial institutions handle large volumes of documents (reports, emails, internal notes) that are costly to categorize manually (operational risk, compliance, client, etc.).\n\n**Objective**: Automate text document classification into multiple risk and compliance categories to accelerate analysis and prioritize critical cases.\n\n**Solution Developed**:\n- Corpus Creation: Annotated text corpus created, preprocessing (tokenization, cleaning).\n- Model Fine-tuning: BERT model fine-tuned (Hugging Face Transformers) for multi-label classification.\n\n**Technologies**: Python, Transformers (BERT), Hugging Face, scikit-learn, Matplotlib/Seaborn.\n\n**Results**: Macro F1-score ≈ 0.87 on ~10k documents; significant reduction in manual sorting time and improved detection of sensitive content (risk/compliance)."
   },
   {
     "id": "acad-etl-spark",
     "title": "Pipeline ETL & EDA Big Data",
     "description": "**Contexte** : Traitement de grands volumes de données transactionnelles hétérogènes pour préparer des cas d'usage d'analytique (détection d'anomalies, scoring, tableaux de bord).\n\n**Objectif** : Mettre en place un pipeline ETL robuste et scalable, du brut jusqu'au dataset prêt pour la modélisation et la visualisation.\n\n**Solution Développée** :\n- Ingestion de fichiers volumineux (>500 Mo) avec Apache Spark, normalisation des schémas, jointures, agrégations.\n- Nettoyage et feature engineering avec Pandas, EDA et visualisation interactive (Plotly) pour mettre en évidence tendances et anomalies.\n\n**Technologies** : Apache Spark, Pandas, SQL, Plotly, Seaborn.\n\n**Résultats** : Temps de traitement divisés par un facteur 3 par rapport à un flux purement local ; datasets prêts pour des modèles de détection d'anomalies et de scoring de risque opérationnel.",
-    "tags": ["academic", "data-eng", "spark", "eda"],
+    "tags": [
+      "academic",
+      "data-eng",
+      "spark",
+      "eda"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Big Data ETL & EDA Pipeline",
+    "description_en": "**Context**: Processing large volumes of heterogeneous transactional data to prepare analytics use cases (anomaly detection, scoring, dashboards).\n\n**Objective**: Implement a robust and scalable ETL pipeline from raw data through to analysis-ready datasets.\n\n**Solution Developed**:\n- Data Ingestion: Large files (>500 MB) processed with Apache Spark, schema normalization, joins, aggregations.\n- Cleaning and Feature Engineering: Data cleaned and engineered with Pandas, EDA and interactive visualization (Plotly) to highlight trends and anomalies.\n\n**Technologies**: Apache Spark, Pandas, SQL, Plotly, Seaborn.\n\n**Results**: Processing time reduced by a factor of 3 compared to purely local workflows; datasets ready for anomaly detection and operational risk scoring models."
   },
   {
     "id": "acad-rl-boursier",
     "title": "Prédiction Boursière par RL",
     "description": "Développement d'un algorithme de Reinforcement Learning pour analyser et prédire les cours des actions. L'agent RL apprend à faire des décisions de trading basées sur l'historique de prix et les indicateurs techniques.\n\n**Technologies** : Python, Keras, TensorFlow, Scikit-learn.",
-    "tags": ["academic", "finance", "reinforcement-learning"],
+    "tags": [
+      "academic",
+      "finance",
+      "reinforcement-learning"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Stock Price Prediction with RL",
+    "description_en": "Development of a Reinforcement Learning algorithm to analyze and predict stock prices. The RL agent learns to make trading decisions based on price history and technical indicators.\n\n**Technologies**: Python, Keras, TensorFlow, Scikit-learn."
   },
   {
     "id": "acad-analytics-cinema",
     "title": "Analyse de Données Cinématographiques",
     "description": "Exploitation d'un dataset de films (1990-2010) pour extraire des insights sur les tendances de l'industrie. Analyse les relations entre genres, budgets, box-office, acteurs et années. Utilise des techniques de visualisation pour identifier les patterns et tendances récurrentes dans le domaine du cinéma.\n\n**Technologies** : Python, bibliothèques de data science (Pandas, Matplotlib, Seaborn).",
-    "tags": ["academic", "eda", "visualization"],
+    "tags": [
+      "academic",
+      "eda",
+      "visualization"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Cinematic Data Analysis",
+    "description_en": "Exploitation of a movie dataset (1990-2010) to extract insights about industry trends. Analyzes relationships between genres, budgets, box-office, actors, and years. Uses visualization techniques to identify patterns and recurring trends in the film industry.\n\n**Technologies**: Python, data science libraries (Pandas, Matplotlib, Seaborn)."
   },
   {
     "id": "acad-bigdata-warehouse",
     "title": "Big Data & Data Warehouse",
     "description": "Mise en place de pipelines de traitement de données hétérogènes avec Neo4j pour le non structuré et MySQL pour un Data Warehouse (analyse OLAP). Combine les graphes complexes (Neo4j) avec une structure OLAP traditionnelle (MySQL) pour analyses multidimensionnelles.\n\n**Technologies** : PySpark, Neo4j, MySQL.",
-    "tags": ["academic", "big-data", "neo4j", "mysql"],
+    "tags": [
+      "academic",
+      "big-data",
+      "neo4j",
+      "mysql"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Big Data & Data Warehouse",
+    "description_en": "Implementation of heterogeneous data processing pipelines with Neo4j for unstructured data and MySQL for a Data Warehouse (OLAP analysis). Combines complex graphs (Neo4j) with traditional OLAP structure (MySQL) for multidimensional analysis.\n\n**Technologies**: PySpark, Neo4j, MySQL."
   },
   {
     "id": "acad-immo-fr",
     "title": "Analyse Marché Immobilier Français",
     "description": "Analyse de données foncières pour classifier les tendances du marché par type de bien, localisation et prix. Segmente les données par catégorie de bien (appartement, maison, etc.), zone géographique et gamme de prix pour identifier les patterns d'évolution du marché immobilier.\n\n**Technologies** : PySpark, Matplotlib, Scikit-learn.",
-    "tags": ["academic", "pyspark", "real-estate", "ml"],
+    "tags": [
+      "academic",
+      "pyspark",
+      "real-estate",
+      "ml"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "French Real Estate Market Analysis",
+    "description_en": "Analysis of land data to classify market trends by property type, location, and price. Segments data by property category (apartment, house, etc.), geographic area, and price range to identify real estate market evolution patterns.\n\n**Technologies**: PySpark, Matplotlib, Scikit-learn."
   },
   {
     "id": "acad-rpg-sante",
     "title": "Jeu RPG Données de Santé",
     "description": "Conception d'un RPG innovant où les données de santé (sport, sommeil, calories) constituent le cœur du gameplay. Les actions du joueur dans le jeu sont directement liées à ses activités réelles. Gamifie l'activité physique et encourage les utilisateurs à atteindre leurs objectifs de santé en les récompensant dans le jeu.\n\n**Technologies** : Python, SwiftUI (iOS), Unity (C#).",
-    "tags": ["personal", "game", "health"],
+    "tags": [
+      "personal",
+      "game",
+      "health"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Health Data RPG Game",
+    "description_en": "Design of an innovative RPG where health data (sports, sleep, calories) is the core of gameplay. Player actions in the game are directly linked to real-life activities. Gamifies physical activity and encourages users to reach health goals by rewarding them in-game.\n\n**Technologies**: Python, SwiftUI (iOS), Unity (C#)."
   },
   {
     "id": "acad-nasdaq-app",
     "title": "App d'Analyse Boursière NASDAQ",
     "description": "Développement d'une application d'analyse et de prédiction des cours du NASDAQ. Intègre des indicateurs techniques financiers classiques (RSI : Relative Strength Index, MACD : Moving Average Convergence Divergence) pour fournir des signaux d'achat/vente. Permet la visualisation des tendances et facilite la prise de décision d'investissement.\n\n**Technologies** : PySpark, Scikit-learn, Matplotlib.",
-    "tags": ["academic", "finance", "app"],
+    "tags": [
+      "academic",
+      "finance",
+      "app"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "NASDAQ Stock Analysis App",
+    "description_en": "Development of an application for analyzing and predicting NASDAQ stock prices. Integrates classic technical indicators (RSI: Relative Strength Index, MACD: Moving Average Convergence Divergence) to provide buy/sell signals. Enables visualization of trends and facilitates investment decision-making.\n\n**Technologies**: PySpark, Scikit-learn, Matplotlib."
   },
   {
     "id": "acad-echecs-ia",
     "title": "Jeu d'Échecs avec IA",
     "description": "Création d'un jeu d'échecs complet avec interface graphique en Java et logique d'IA backend en Python. L'IA utilise des algorithmes de recherche (minimax ou similar) pour évaluer les coups et jouer contre le joueur humain avec différents niveaux de difficulté.\n\n**Technologies** : Java, Python.",
-    "tags": ["personal", "game", "ai"],
+    "tags": [
+      "personal",
+      "game",
+      "ai"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Chess Game with AI",
+    "description_en": "Creation of a complete chess game with GUI in Java and AI backend logic in Python. AI uses search algorithms (minimax or similar) to evaluate moves and play against the human player at different difficulty levels.\n\n**Technologies**: Java, Python."
   },
   {
     "id": "acad-morpion-ia",
     "title": "Tic Tac Toe IA",
     "description": "Développement d'un jeu de Tic Tac Toe avec interface graphique en Java et une logique d'IA robuste en Python. L'IA utilise des algorithmes de recherche pour jouer de manière optimale contre le joueur humain.\n\n**Technologies** : Java, Python.",
-    "tags": ["personal", "game", "ai"],
+    "tags": [
+      "personal",
+      "game",
+      "ai"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Tic Tac Toe AI",
+    "description_en": "Development of a Tic Tac Toe game with GUI in Java and robust AI logic in Python. AI uses search algorithms to play optimally against the human player.\n\n**Technologies**: Java, Python."
   },
   {
     "id": "acad-fitness-nutrition",
     "title": "App Fitness & Nutrition",
     "description": "Conception d'une application mobile iOS complète intégrant des programmes de fitness personnalisés et des conseils nutritionnels adaptés. Permet aux utilisateurs de suivre leurs progressions, d'accéder à des entraînements guidés et de recevoir des recommandations alimentaires basées sur leurs objectifs.\n\n**Technologies** : SwiftUI.",
-    "tags": ["personal", "mobile", "health"],
+    "tags": [
+      "personal",
+      "mobile",
+      "health"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Fitness & Nutrition App",
+    "description_en": "Design of a complete iOS mobile application integrating personalized fitness programs and adapted nutritional advice. Allows users to track progress, access guided workouts, and receive food recommendations based on their goals.\n\n**Technologies**: SwiftUI."
   },
   {
     "id": "acad-bataille-navale",
     "title": "Jeu Bataille Navale (C)",
     "description": "Réalisation d'un jeu de bataille navale en C pur, sans librairies externes excepté les standards (stdio.h, stdlib.h). Implémente la logique complète du jeu avec grille de jeu, placement de navires, système de tir et détection des coups.\n\n**Technologies** : C.",
-    "tags": ["personal", "game", "c"],
+    "tags": [
+      "personal",
+      "game",
+      "c"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Battleship Game (C)",
+    "description_en": "Implementation of a Battleship game in pure C, without external libraries except standards (stdio.h, stdlib.h). Implements full game logic with game grid, ship placement, firing system, and hit detection.\n\n**Technologies**: C."
   },
   {
     "id": "acad-visionnage-films-ia",
     "title": "Visionnage de Films avec IA",
     "description": "Application de lecture de films locaux avec extraction automatique des métadonnées (titre, année de sortie, résumé/synopsis) via IA et NLP. Enrichit automatiquement la librairie de films avec des informations pertinentes extraites des fichiers ou de sources externes.\n\n**Technologies** : Java, Python.",
-    "tags": ["personal", "app", "nlp"],
+    "tags": [
+      "personal",
+      "app",
+      "nlp"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Movie Viewing with AI",
+    "description_en": "Local movie playback application with automatic metadata extraction (title, release year, synopsis) via AI and NLP. Automatically enriches movie library with relevant information extracted from files or external sources.\n\n**Technologies**: Java, Python."
   },
   {
     "id": "acad-reconnaissance-vocale-arduino",
     "title": "Dispositif de Reconnaissance Vocale",
     "description": "Développement d'un module Arduino pour la reconnaissance vocale embarquée. Associe du matériel IoT (microphone sur Arduino) avec des réseaux neuronaux en Python pour classifier les commandes vocales. Permet le contrôle d'appareils via reconnaissance vocale avec traitement local.\n\n**Technologies** : Arduino (C), Python.",
-    "tags": ["personal", "iot", "voice"],
+    "tags": [
+      "personal",
+      "iot",
+      "voice"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Voice Recognition Device",
+    "description_en": "Development of an Arduino module for embedded voice recognition. Combines IoT hardware (microphone on Arduino) with Python neural networks to classify voice commands. Enables device control via voice recognition with local processing.\n\n**Technologies**: Arduino (C), Python."
   },
   {
     "id": "acad-energy-forecasting",
     "title": "Pipeline de Prévision Énergétique",
     "description": "Développement d'un pipeline complet de prévision de consommation énergétique utilisant des techniques de machine learning avancées. Le projet combine l'ingestion de données, le feature engineering, l'entraînement de modèles prédictifs et une interface interactive Streamlit pour visualiser les prévisions en temps réel.\n\n**Contexte** : La prévision précise de la consommation énergétique est cruciale pour optimiser les opérations énergétiques et réduire les coûts.\n\n**Objectif** : Créer un système capable de prédire la consommation énergétique avec une haute précision et de présenter les résultats de manière interactive et accessible.\n\n**Solution Développée** :\n- Pipeline ETL robuste pour l'ingestion et le nettoyage des données énergétiques\n- Feature engineering avancé avec création d'indicateurs temporels et saisonniers\n- Entraînement et comparaison de multiples modèles ML (régression, séries temporelles, réseaux de neurones)\n- Interface Streamlit interactive pour visualisation et interprétation des prévisions\n- Déploiement cloud automatisé et mise à jour des modèles\n\n**Technologies** : Python, Pandas, Scikit-learn, TensorFlow/Keras, Apache Spark, Streamlit, SQL.\n\n**Impact** : Système de prévision opérationnel accessible via interface web, permettant aux utilisateurs de visualiser les tendances énergétiques et d'optimiser leur consommation basée sur les prévisions.",
-    "tags": ["academic", "time-series", "ml", "energy", "streamlit"],
+    "tags": [
+      "academic",
+      "time-series",
+      "ml",
+      "energy",
+      "streamlit"
+    ],
     "github_url": "https://github.com/youssef-aitelourf/energy-forecasting-pipeline.git",
     "demo_url": "https://energy-forecasting-pipeline-jz3pmgtopcgsaq5hqtaxeh.streamlit.app",
-    "images": []
+    "images": [],
+    "title_en": "Energy Forecasting Pipeline",
+    "description_en": "Development of a comprehensive energy consumption forecasting pipeline using advanced machine learning techniques. The project combines data ingestion, feature engineering, predictive model training, and an interactive Streamlit interface to visualize forecasts in real-time.\n\n**Context**: Accurate energy consumption forecasting is crucial for optimizing energy operations and reducing costs.\n\n**Objective**: Create a system capable of predicting energy consumption with high accuracy and presenting results in an interactive and accessible way.\n\n**Solution Developed**:\n- Robust ETL pipeline for energy data ingestion and cleaning\n- Advanced feature engineering with creation of temporal and seasonal indicators\n- Training and comparison of multiple ML models (regression, time series, neural networks)\n- Interactive Streamlit interface for visualization and interpretation of forecasts\n- Automated cloud deployment and model updates\n\n**Technologies**: Python, Pandas, Scikit-learn, TensorFlow/Keras, Apache Spark, Streamlit, SQL.\n\n**Impact**: Operational forecasting system accessible via web interface, allowing users to visualize energy trends and optimize consumption based on forecasts."
   },
   {
     "id": "acad-real-time-sentiment-analytics-spark",
     "title": "Pipeline d'Analyse de Sentiment sur Réseaux Sociaux",
     "description": "**Contexte** : L'analyse de sentiment sur les réseaux sociaux génère des volumes massifs de données nécessitant des infrastructures distribuées pour traiter efficacement des millions de messages en temps réel.\n\n**Objectif** : Créer un système scalable capable de classifier automatiquement le sentiment (positif/négatif/neutre) de millions de tweets avec haute précision et des temps de traitement optimisés grâce au calcul distribué.\n\n**Solution Développée** :\n- Pipeline ETL distribué avec Apache Spark pour ingestion de 1.6M tweets en 3.4 secondes\n- Preprocessing NLP complet : nettoyage, tokenization, suppression de 150+ stopwords anglais\n- Feature engineering avancé : 15+ features textuelles (TF-IDF, longueur, emojis, hashtags, mentions)\n- Détection automatique de topics (6 catégories : tech, politique, finance, santé, sports, général)\n- Entraînement et comparaison de 3 modèles ML distribués (Logistic Regression, Naive Bayes, Random Forest)\n- Split train/test 80-20 : 1.1M tweets d'entraînement, 282K tweets de test\n- Script de téléchargement automatique de datasets réels (Sentiment140, Twitter Airline)\n\n**Technologies** : Python, PySpark 3.5, Apache Spark SQL, Spark MLlib, NLP (Tokenization, TF-IDF, StopWordsRemover), Matplotlib, Seaborn, WordCloud, Pandas, NumPy.\n\n**Impact** : Pipeline opérationnel traitant 1.6 million de tweets avec 98% de rétention après nettoyage. Meilleur modèle (Logistic Regression) atteint 71.02% d'accuracy avec F1-score de 0.71 sur 282K tweets de test. Système scalable démontrant la capacité à gérer des volumes massifs de données textuelles avec architecture distribuée.",
-    "tags": ["academic", "big-data", "nlp", "spark", "ml", "sentiment-analysis", "distributed-computing"],
+    "tags": [
+      "academic",
+      "big-data",
+      "nlp",
+      "spark",
+      "ml",
+      "sentiment-analysis",
+      "distributed-computing"
+    ],
     "github_url": "https://github.com/youssef-aitelourf/real-time-sentiment-analytics-spark",
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "Real-time Sentiment Analytics on Social Networks",
+    "description_en": "**Context**: Sentiment analysis on social networks generates massive data volumes requiring distributed infrastructure to efficiently process millions of messages in real-time.\n\n**Objective**: Create a scalable system capable of automatically classifying sentiment (positive/negative/neutral) of millions of tweets with high accuracy and optimized processing times using distributed computing.\n\n**Solution Developed**:\n- Distributed ETL pipeline with Apache Spark for ingestion of 1.6M tweets in 3.4 seconds\n- Complete NLP preprocessing: cleaning, tokenization, removal of 150+ English stopwords\n- Advanced feature engineering: 15+ textual features (TF-IDF, length, emojis, hashtags, mentions)\n- Automatic topic detection (6 categories: tech, politics, finance, health, sports, general)\n- Training and comparison of 3 distributed ML models (Logistic Regression, Naive Bayes, Random Forest)\n- 80-20 train/test split: 1.1M training tweets, 282K test tweets\n- Automatic dataset download script (Sentiment140, Twitter Airline)\n\n**Technologies**: Python, PySpark 3.5, Apache Spark SQL, Spark MLlib, NLP (Tokenization, TF-IDF, StopWordsRemover), Matplotlib, Seaborn, WordCloud, Pandas, NumPy.\n\n**Impact**: Operational pipeline processing 1.6 million tweets with 98% retention after cleaning. Best model (Logistic Regression) achieves 71.02% accuracy with F1-score of 0.71 on 282K test tweets. Scalable system demonstrating the ability to handle massive text data volumes with distributed architecture."
   },
   {
     "id": "acad-jarvis-llm",
     "title": "Adaptation LLM type JARVIS",
     "description": "Adaptation de modèles de langage open-source pour créer un assistant personnel type \"JARVIS\" pour ordinateur personnel. Automatise des tâches quotidiennes courantes (gestion d'emails, rappels, recherche, commandes système) via interactions en langage naturel. Approche d'assistant IA généraliste et polyvalent.\n\n**Technologies** : Python, C.",
-    "tags": ["personal", "genai", "automation"],
+    "tags": [
+      "personal",
+      "genai",
+      "automation"
+    ],
     "github_url": null,
     "demo_url": null,
-    "images": []
+    "images": [],
+    "title_en": "LLM JARVIS-type Adaptation",
+    "description_en": "Adaptation of open-source language models to create a personal assistant like \"JARVIS\" for personal computers. Automates common daily tasks (email management, reminders, search, system commands) through natural language interactions. Generalist and versatile AI assistant approach.\n\n**Technologies**: Python, C."
   },
   {
     "id": "acad-ai-architect-simulator",
     "title": "AI Architect Simulator",
     "description": "Contexte : Choisir entre fine-tuning, RAG, base vectorielle ou approche hybride est complexe et dépend de contraintes de données, budget, latence et confidentialité.\n\nObjectif : Offrir un simulateur interactif qui recommande l’architecture LLM la plus adaptée (Fine-Tuning, RAG, Vector DB, Hybrid) en expliquant les raisons, avantages, limites et une alternative.\n\nSolution Développée :\n- Moteur de décision rule-based (score 0-100) sur 8 dimensions : types/volume de données, fréquence de mise à jour, budget, latence, confidentialité, priorité qualité, spécificité domaine\n- 4 stratégies évaluées : Fine-Tuning, RAG, Vector DB only, Hybrid (RAG + FT) avec explications, pros/cons, alternative\n- Interfaces : CLI interactive (couleurs) et Web Streamlit (cartes, bar chart comparatif, expanders de détail)\n- 6 scénarios réels fournis (support client, légal, recherche code, médical, MVP, finance temps réel)\n- Tests unitaires (11 tests, 100% pass) + exemples quick start\n- Documentation complète (README, Quickstart, Demo, Git setup)\n\nTechnologies : Python 3.9+, Streamlit, dataclasses, Enum, pandas (visualisation scores), CLI ANSI, pytest, pyproject/requirements.\n\nImpact : Décision éclairée et transparente sur l’architecture LLM, réduction du temps d’exploration, support portfolio avec code propre, testable et déployé (Streamlit Cloud).",
-    "tags": ["personal", "llm", "rag", "fine-tuning", "vector-db", "hybrid", "architecture", "decision-support", "python", "streamlit", "cli"],
+    "tags": [
+      "personal",
+      "llm",
+      "rag",
+      "fine-tuning",
+      "vector-db",
+      "hybrid",
+      "architecture",
+      "decision-support",
+      "python",
+      "streamlit",
+      "cli"
+    ],
     "github_url": "https://github.com/youssef-aitelourf/ai-architect-simulator",
     "demo_url": "https://ai-architect-simulator.streamlit.app",
-    "images": []
+    "images": [],
+    "title_en": "AI Architect Simulator",
+    "description_en": "Context: Choosing between fine-tuning, RAG, vector database or hybrid approach is complex and depends on data constraints, budget, latency and privacy.\n\nObjective: Offer an interactive simulator that recommends the most suitable LLM architecture (Fine-Tuning, RAG, Vector DB, Hybrid) by explaining reasons, advantages, limitations and an alternative.\n\nSolution Developed:\n- Rule-based decision engine (score 0-100) across 8 dimensions: data types/volume, update frequency, budget, latency, privacy, quality priority, domain specificity\n- 4 strategies evaluated: Fine-Tuning, RAG, Vector DB only, Hybrid (RAG + FT) with explanations, pros/cons, alternative\n- Interfaces: Interactive CLI (colors) and Web Streamlit (cards, comparative bar chart, detail expanders)\n- 6 real-world scenarios provided (customer support, legal, code search, medical, MVP, real-time finance)\n- Unit tests (11 tests, 100% pass) + quick start examples\n- Complete documentation (README, Quickstart, Demo, Git setup)\n\nTechnologies: Python 3.9+, Streamlit, dataclasses, Enum, pandas (score visualization), CLI ANSI, pytest, pyproject/requirements.\n\nImpact: Informed and transparent decision on LLM architecture, reduced exploration time, portfolio support with clean, testable code deployed on Streamlit Cloud."
   }
 ]
